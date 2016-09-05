@@ -1,0 +1,29 @@
+
+\documentclass[media=print,linespacing=double,fontsize=11pt]{SPhdThesis}
+
+% PDF and title properties.
+\SgSetTitle{An implementation for a heuristic range-based classification method}
+\SgSetAuthor{Phuong Anh Tran}
+\SgSetAuthorDegrees{MSc Computing}
+\SgSetYear{2016}
+\SgSetDegree{MSc Computing}
+\SgSetDepartment{Department of Computer Science}
+\SgSetUniversity{Cardiff University}
+\SgSetDeclarationDate{June 2016}
+
+% The document.
+\begin{document}
+	\begin{frontmatter}
+		\SgAddTitle%
+		\SgAddDeclaration%
+		\input{acknowledgments}%
+		\input{abstract}%
+		\SgAddToc%  Table of contents.
+		\SgAddLof%  List of figures.
+		\SgAddLot%  List of tables.
+		\SgAddLoa%  List of algorithms.
+	\end{frontmatter}
+	\input{sections/section1}
+	\input{sections/section2}
+	\SgIncludeBib{biblio}
+\end{document}
