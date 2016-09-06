@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.8.10)  6 SEP 2016 02:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.8.10)  6 SEP 2016 02:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -821,7 +821,7 @@ T1/cmr/m/n/10.95 (-20) , the al-go-rithm at-temps to seek for clas-si-fi-ca-tio
 n $\OML/cmm/m/it/10.95 r[]; r[]; r[]::r[] \OMS/cmsy/m/n/10.95 !
  []
 
-<figures/DrShaoAlgorithm1.png, id=165, 742.775pt x 765.86125pt>
+<figures/DrShaoAlgorithm1.png, id=185, 742.775pt x 765.86125pt>
 File: figures/DrShaoAlgorithm1.png Graphic file (type png)
 
 <use figures/DrShaoAlgorithm1.png>
@@ -867,7 +867,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 150--151
 
  []
 
-<figures/DrShaoAlgorithm2.png, id=192, 727.71875pt x 692.5875pt>
+<figures/DrShaoAlgorithm2.png, id=212, 727.71875pt x 692.5875pt>
 File: figures/DrShaoAlgorithm2.png Graphic file (type png)
 
 <use figures/DrShaoAlgorithm2.png>
@@ -898,9 +898,36 @@ Underfull \hbox (badness 10000) in paragraph at lines 172--173
 
 (./tables/table5.tex) [13]) (./sections/section3.tex [14]
 Section 3.
-) [15
 
-]
+Underfull \hbox (badness 10000) in paragraph at lines 9--10
+
+ []
+
+[15
+
+] [16]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 32.
+ (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 32.
+
+Underfull \hbox (badness 10000) in paragraph at lines 32--35
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 36--39
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 44--47
+
+ []
+
+[17]) [18]
 No file dissertation.bbl.
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 32.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 32.
@@ -908,14 +935,14 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 32.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 32.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 32.
 Package rerunfilecheck Info: File `dissertation.out' has not changed.
-(rerunfilecheck)             Checksum: 9763D23F473513EA0011C1361A08DD43;824.
+(rerunfilecheck)             Checksum: CA32A466F0739192439DA81EC2048759;1152.
  ) 
 Here is how much of TeX's memory you used:
- 14161 strings out of 493029
- 225789 string characters out of 6136234
+ 14192 strings out of 493029
+ 226282 string characters out of 6136234
  390377 words of memory out of 5000000
- 17280 multiletter control sequences out of 15000+600000
- 25265 words of font info for 111 fonts, out of 8000000 for 9000
+ 17299 multiletter control sequences out of 15000+600000
+ 25316 words of font info for 112 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  60i,12n,94p,1213b,418s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texliv
@@ -936,10 +963,10 @@ fb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf
 /fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/
 cm-super/sfti1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1200.pf
 b>
-Output written on dissertation.pdf (23 pages, 407714 bytes).
+Output written on dissertation.pdf (26 pages, 418250 bytes).
 PDF statistics:
- 291 PDF objects out of 1000 (max. 8388607)
- 242 compressed objects within 3 object streams
- 54 named destinations out of 1000 (max. 500000)
- 20091 words of extra memory for PDF output out of 20736 (max. 10000000)
+ 326 PDF objects out of 1000 (max. 8388607)
+ 274 compressed objects within 3 object streams
+ 61 named destinations out of 1000 (max. 500000)
+ 20123 words of extra memory for PDF output out of 20736 (max. 10000000)
 
