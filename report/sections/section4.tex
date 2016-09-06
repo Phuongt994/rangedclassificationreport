@@ -25,9 +25,9 @@ Details will be discussed in sections below for each phase. To demonstrate the s
 
 \textit{Reason: } Initial plan included an extra processing unit for filtering csv file when value is Null. However, time constraint did not allow the construction of this unit. Hence the programme only consider pre-processed csv data at the time the report is written.
 
-\item[Output: ] A list of all instances of the data - a list of tuples that are presented as lists ($AllTuples$). Moreover, a partitioned map that contains class values as keys that are connected to their relevant sub-data (list of instances) as values ($AllClassMap$)
+\item[Output: ] A list of all instances of the data - a list of tuples that are presented as lists (\texttt{AllTuples}). Moreover, a partitioned map that contains class values as keys that are connected to their relevant sub-data (list of instances) as values (\texttt{AllClassMap})
   
-\textit{Reason: } $AllTuples$ is required to provide access to all original data. $AllClassMap$ is required to get the class-based data partition since the key efficiency of this algorithm is to `divide and conquer' on data partitions guided by class tag [SRC]
+\textit{Reason: } \texttt{AllTuples} is required to provide access to all original data. \texttt{AllClassMap} is required to get the class-based data partition since the key efficiency of this algorithm is to `divide and conquer' on data partitions guided by class tag [SRC]
 
 \item[Data type: ] \texttt{LinkedList} (for tuples), \texttt{LinkedHashMap} (for class-based data partitioned map)
 
@@ -75,15 +75,25 @@ FIG PLS
 	\item{To pass the modified sub-data pools as well as new sub-ranges to the next phase or class ($Generator$).} 
 \end{itemize}
 
-WE ARE HERE
 
-\item[Input: ] Assumed pre-processed csv file i.e. no null values within attributes and the order of element in an instance is {attribute 1, attribute 2,..., attribute N, class C}
+\item[Input: ] allClassMap (with class value and sub-data partitions) and allTuple (all instances in data set) from previous phase or class
 
-\textit{Reason: } Initial plan included an extra processing unit for filtering csv file when value is Null. However, time constraint did not allow the construction of this unit. Hence the programme only consider pre-processed csv data at the time the report is written.
+\textit{Reason: } allClassMap is needed for the class-guided search for the rest of the programme. This map, however, changes as the sub-data pool changes throughout the cycle. Therefore, allTuple is needed to refer back to the original, pre-modification input when necessary.
 
-\item[Output: ] A list of all instances of the data - a list of tuples that are presented as lists ($AllTuples$). Moreover, a partitioned map that contains class values as keys that are connected to their relevant sub-data (list of instances) as values ($AllClassMap$)
+\item[Output: ] A list of sub-ranges in float values that passed the support-confidence check (\texttt{attributeRangeList}). It also returns a modified version of allClassMap, which \texttt{AllClassMap} is now divided into two maps: \textit{attributeRange} and \textit{attributeTuple}.
   
-\textit{Reason: } $AllTuples$ is required to provide access to all original data. $AllClassMap$ is required to get the class-based data partition since the key efficiency of this algorithm is to `divide and conquer' on data partitions guided by class tag [SRC]
+\textit{Reason: } As required for the next $Generate$ phase, \texttt{attributeRangeList} stores potential associated ranges for new combination. 
+Map, however, diversifies into two: 
+\begin{itemize}
+	\item One for storing sub-ranges (that are also stored in \texttt{attributeRangeList})for each attributes. That means \texttt{attributeRangeMap} has its key quantity equal to the number of attributes, and each key maps to at least one sub-range found from analysing methods.
+	
+	\item One for storing tuples that each sub-range in \texttt{attributeRangeMap} covers. That means \texttt{attributeRangeMap} has its key quantity equal to the number of sub-ranges available (that are also recorded in \texttt{attributeRangeList}), and each key maps to a list of tuples that is covered by that range.
+	
+	Initially, only \texttt{attributeRangeMap} was implemented as it was thought that only attribute and its sub-ranges were necessary to be recorded formally. Tuples covered by sub-ranges were thought to be retrievable by tracing back to the original \texttt{AllClassMap}.
+	However, as data was partitioned further the longer the algorithm persisted, there was no fixed map that remained relevant for the entire duration of the programme. With the dynamic nature of tuple sets, it was safer to recorded them right when their sub-ranges were being processed. Thus there was a need for the additional \texttt{attributeTupleMap}.
+\end{itemize}
+
+WE ARE HERE 
 
 \item[Data type: ] \texttt{LinkedList} (for tuples), \texttt{LinkedHashMap} (for class-based data partitioned map)
 
