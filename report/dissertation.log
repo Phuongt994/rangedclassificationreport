@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.8.10)  6 SEP 2016 21:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.8.10)  6 SEP 2016 23:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -776,7 +776,7 @@ T1/cmr/m/n/10.95 (-20) , the al-go-rithm at-temps to seek for clas-si-fi-ca-tio
 n $\OML/cmm/m/it/10.95 r[]; r[]; r[]::r[] \OMS/cmsy/m/n/10.95 !
  []
 
-<figures/DrShaoAlgorithm1.png, id=203, 742.775pt x 765.86125pt>
+<figures/DrShaoAlgorithm1.png, id=212, 742.775pt x 765.86125pt>
 File: figures/DrShaoAlgorithm1.png Graphic file (type png)
 
 <use figures/DrShaoAlgorithm1.png>
@@ -788,7 +788,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 132--135
 
  []
 
-[10] <figures/DrShaoAlgorithm2.png, id=229, 727.71875pt x 692.5875pt>
+[10] <figures/DrShaoAlgorithm2.png, id=238, 727.71875pt x 692.5875pt>
 File: figures/DrShaoAlgorithm2.png Graphic file (type png)
 
 <use figures/DrShaoAlgorithm2.png>
@@ -861,13 +861,31 @@ Package microtype Info: Loading generic settings for font family
 (microtype)             `cmtt' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-
-Overfull \hbox (2.04884pt too wide) in paragraph at lines 31--32
+ [19]
+Overfull \hbox (2.04884pt too wide) in paragraph at lines 36--37
 \T1/cmr/m/n/10.95 (-20) recorded with its unique class value. It has String cla
 ss as key and \T1/cmtt/m/n/10.95 LinkedList<LinkedList>
  []
 
-) [19]
+<figures/class_scanners.png, id=279, 260.0149pt x 80.12543pt>
+File: figures/class_scanners.png Graphic file (type png)
+
+<use figures/class_scanners.png>
+Package pdftex.def Info: figures/class_scanners.png used on input line 53.
+(pdftex.def)             Requested size: 289.07999pt x 89.08575pt.
+ [20 <./figures/class_scanners.png (PNG copy)>] [21]
+Overfull \hbox (2.04884pt too wide) in paragraph at lines 92--93
+\T1/cmr/m/n/10.95 (-20) recorded with its unique class value. It has String cla
+ss as key and \T1/cmtt/m/n/10.95 LinkedList<LinkedList>
+ []
+
+<figures/class_analyser.png, id=289, 481.53815pt x 168.10631pt>
+File: figures/class_analyser.png Graphic file (type png)
+
+<use figures/class_analyser.png>
+Package pdftex.def Info: figures/class_analyser.png used on input line 109.
+(pdftex.def)             Requested size: 361.34999pt x 126.14867pt.
+) [22] [23 <./figures/class_analyser.png (PNG copy)>]
 No file dissertation.bbl.
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 32.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 32.
@@ -875,14 +893,18 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 32.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 32.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 32.
 Package rerunfilecheck Info: File `dissertation.out' has not changed.
-(rerunfilecheck)             Checksum: C6096295F87C271E694D8A729BEBEE83;1324.
+(rerunfilecheck)             Checksum: C0FB13E691FCE8E07473516CB910A13D;1394.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
- 14221 strings out of 493029
- 226691 string characters out of 6136234
+ 14245 strings out of 493029
+ 227159 string characters out of 6136234
  391374 words of memory out of 5000000
- 17307 multiletter control sequences out of 15000+600000
- 26119 words of font info for 117 fonts, out of 8000000 for 9000
+ 17320 multiletter control sequences out of 15000+600000
+ 26177 words of font info for 118 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  60i,12n,94p,1211b,469s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texliv
@@ -903,10 +925,10 @@ fb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf
 /fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/
 cm-super/sfti1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1200.pf
 b></usr/share/texmf/fonts/type1/public/cm-super/sftt1000.pfb>
-Output written on dissertation.pdf (27 pages, 453569 bytes).
+Output written on dissertation.pdf (31 pages, 481685 bytes).
 PDF statistics:
- 351 PDF objects out of 1000 (max. 8388607)
- 297 compressed objects within 3 object streams
- 66 named destinations out of 1000 (max. 500000)
- 20659 words of extra memory for PDF output out of 20736 (max. 10000000)
+ 383 PDF objects out of 1000 (max. 8388607)
+ 322 compressed objects within 4 object streams
+ 73 named destinations out of 1000 (max. 500000)
+ 20677 words of extra memory for PDF output out of 20736 (max. 10000000)
 
