@@ -81,14 +81,14 @@ This phase has its primary concern as to generate larger associated ranges for t
 
 Details for each phase are as follows:
 
-\subsection{Original Phase I (Analyse)}
+\subsection{Original Phase I Analyse}
 
 Given a table $T(A_1, A_2, A_3,..A_m, C)$, the algorithm attemps to seek for classification $r_1, r_2, r_3..r_h \rightarrow c_j$ by finding, among instances that are under class $c_j \subset C$, a number of associated ranges $r_1, r_2, r_3..r_h$ that have at least a minimum support ($\sigma_{min}$), density ($\delta_{min}$) and confidence ($\gamma_{min}$) that had previously been specified by the user. This process can be explained in Phase I (Analyse) in which the algorithm seeks for associated ranges and checks if thresholds are satisfied. From [SRC], this phase is outlined as below:
 
 \begin{figure}[!htbp]
     \centering
     \includegraphics[width=4in]{figures/DrShaoAlgorithm1}
-    \caption[Figure 2.1: Original Phase I (Analyse) algorithm]{Original Phase I (Analyse) algorithm}
+    \caption[Original Phase I Analyse algorithm]{Original Phase I Analyse algorithm}
     \label{fig:figure2_1}
 \end{figure}
 
@@ -146,13 +146,13 @@ Hence $LR_k = \{[0.68, 0.75]_{A_1}, [1.21,1.64]_{A_2}\}$ is accepted and passed 
 
 \end{description}
 
-\subsection{Original Phase II (Generate)}
+\subsection{Original Phase II Generate}
 In this phase, the algorithm prepares $CR_{k+1}$ for the next iteration by combining two relevant ranges in $LR_k$, thus extending the current ranges. The combining process mirrors the A-priori algorithm in generating frequent itemsets in association rule mining. Although A-priori applies on categorical values, it is adapted to this range-based classfication algorithm by using an additional step on range adjustment. The algorithm is denoted in Figure 2.2 below: 
 
 \begin{figure}[!htbp]
     \centering
     \includegraphics[width=4in]{figures/DrShaoAlgorithm2}
-    \caption[Figure 2.2: Original Phase II (Generate) algorithm]{Original Phase II (Generate) algorithm}
+    \caption[Original Phase II Generate algorithm]{Original Phase II Generate algorithm}
     \label{fig:figure2_2}
 \end{figure}
 
