@@ -1,11 +1,23 @@
 \chapter{Implementation}
 
 \section{Structure}
+
+\subsection{Overview}
+
 Based on the project algorithm design, its Java implementation unit complies with the specified structure and thus maintain the two core phases ($Analyse$ and $Generate$). However, hard code requires extra handling of data input and output. Hence additional two phases are added: $Scan$ and $Monitor$, which read and display input respectively. Moreover, the differences in data type of different iterations require extra treatment would be too clunky to append to the $Analyse$ phase. Thus, another phase is in line: $Sub-Analyse$, which inherits $Analyse$ range-analysing functions while having additional threshold check (for density) and handle elimination round for partly-covered tuples.  
 
 The implementation process can now be divided into five Phases instead of two from the original algorithm. The reasoning is assessed in details below:
 
 \input{tables/table6}
+
+From Table 4.1, a detailed structure for the programme can be presented visually in an Activity Diagram below:
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=6.5in]{figures/activity_overview}
+    \caption[Class overview: Activity Diagram]{Class overview: Activity Diagram}
+    \label{fig:figure4_1}
+\end{figure}
 
 
 Details will be discussed in sections below for each phase. To demonstrate the structure visually, a Class Diagram and an Activity Diagram is shown for each phase, that is represented by each class. Reason is because Class Diagram is the most common representation for an overview within and between classes [SRC]. A Sequence Diagram could have been an alternative to Activity Diagram; however, Sequence Diagram fails to demonstrate the actual data flow as the programme needs to call different functions or initialise different objects in different iteration. It means the sequences between classes change depending on which round the programme is on, thus not shown accurately in one data flow chart as in Sequence Diagram [SRC]. Therefore, to demonstrate the purpose of classes, Activity Diagram is in use.
@@ -16,28 +28,35 @@ Details will be discussed in sections below for each phase. To demonstrate the s
 
 \item[Aim: ] There are three aims within this phase or class:
 \begin{itemize}
-	\item{To read data from .csv file} 
+	\item{To read data from \texttt{.csv} file} 
 	\item{To sort data into sub-data pools using class values found when reading data in} 
 	\item{To pass these data into the next phase or class ($Analyser$} 
 \end{itemize}
 
-\item[Input: ] Assumed pre-processed csv file i.e. no null values within attributes and the order of element in an instance is {attribute 1, attribute 2,..., attribute N, class C}
+\item[Input: ] This class input is the data itself:
+\begin{itemize}
+	\item{Pre-processed .csv file (no null values within attributes and the order of element in an instance is {attribute $1$, attribute $2$,..., attribute $N$, class $C$}}
+\end{itemize} 
 
 \textit{Reason: } Initial plan included an extra processing unit for filtering csv file when value is Null. However, time constraint did not allow the construction of this unit. Hence the programme only consider pre-processed csv data at the time the report is written.
 
-\item[Output: ] A list of all instances of the data - a list of tuples that are presented as lists (\texttt{AllTuples}). Moreover, a partitioned map that contains class values as keys that are connected to their relevant sub-data (list of instances) as values (\texttt{AllClassMap})
+\item[Output: ] This class output are data taken from input source:
+\begin{itemize}
+	\item{\texttt{AllTuples}: A list of all instances of the data - a list of tuples that are presented as lists.}
+	\item{\texttt{AllClassMap}: A partitioned map that contains class values as keys that are connected to their relevant sub-data (list of instances) as values.}
+\end{itemize}
   
-\textit{Reason: } \texttt{AllTuples} is required to provide access to all original data. \texttt{AllClassMap} is required to get the class-based data partition since the key efficiency of this algorithm is to `divide and conquer' on data partitions guided by class tag [SRC]
+\textit{Reason: } Data taken from input sources need separate containers for different purpose: \texttt{AllTuples} is required to provide access to all original data. On a different note, \texttt{AllClassMap} is required to get the class-based data partition since the key efficiency of this algorithm is to `divide and conquer' on data partitions guided by class tag [SRC]
 
 \item[Data type: ] \texttt{LinkedList} (for tuples), \texttt{LinkedHashMap} (for class-based data partitioned map)
 
-\textit{Reason: } A \texttt{List} (without specified inner data type) is used for tuples since it needs multiple types of data (e.g. float number, string class value, integer order). In this case, \texttt{LinkedList} is used instead of \texttt{ArrayList} due to its ability to add and remove first and last elements more quickly than the alternative [SRC]. It is necessary to retrieve class value at faster rate as class value is the last element in the tuple.
+\textit{Reason: } A \texttt{List} - without specified inner data type - is used for tuples since it needs multiple types of data (e.g. float number, string class value, integer ordered number). In this case, \texttt{LinkedList} is used instead of \texttt{ArrayList} for two reasons: Firsrly, its ability to add and remove first and last elements more quickly than the alternative [SRC]. It is necessary to retrieve class value in each tuple at faster rate as class value is the last element in the tuple. Secondly, \texttt{LinkedList} or any type of \texttt{Linked}-collection type means its  A set of tuples thus casts as \texttt{LinkedList<LinkedList>}.
 
-Similarly, a \texttt{LinkedHashMap} is used for faster retrieval rate in later parts. A \texttt{HashMap} is used for storing partitioned sub-data from class values since each partition of data needs to be recorded with its unique class value. It has String class as key and \texttt{LinkedList<LinkedList>} List of all tuples as values. 
+Similarly, a \texttt{LinkedHashMap} is used for faster retrieval rate an. A \texttt{HashMap} is used for storing partitioned sub-data from class values since each partition of data needs to be recorded with its unique class value. It has String class as key and \texttt{LinkedList<LinkedList>} List of all tuples as values. 
 
 \item[Class diagram: ] 
 
-Its class diagram is in Figure 4.1, showing two features:
+Its class diagram is in Figure 4.1, showing two features/methods:
 \begin{itemize}
 	\item{scanData()} \\
 	This method initialises two scanners, one to scan line-by-line data from csv file (i.e. tuples) and one to scan in-line elements (i.e. attributes).
@@ -50,9 +69,9 @@ Its class diagram is in Figure 4.1, showing two features:
 
 \begin{figure}[!htbp]
     \centering
-    \includegraphics[width=4in]{figures/class_scanners}
+    \includegraphics[width=5in]{figures/class_scanners}
     \caption[A Class Diagram for Phase I Scanners]{A Class Diagram for Phase I Scanners}
-    \label{fig:figure4_1}
+    \label{fig:figure4_2}
 \end{figure}
 
 \item[Activity diagram: ] 
@@ -76,9 +95,13 @@ FIG PLS
 \end{itemize}
 
 
-\item[Input: ] allClassMap (with class value and sub-data partitions) and allTuple (all instances in data set) from previous phase or class
+\item[Input: ] This class input is the original dataset and the class-based data map from passed on from previous class:
+\begin{itemize}
+	\item{\texttt{allTuple}:  all original instances in dataset.} 
+	\item{\texttt{allClassMap}: with key as class tag and value as relevant sub-data partition.}
+\end{itemize}
 
-\textit{Reason: } allClassMap is needed for the class-guided search for the rest of the programme. This map, however, changes as the sub-data pool changes throughout the cycle. Therefore, allTuple is needed to refer back to the original, pre-modification input when necessary.
+\textit{Reason: } \texttt{allClassMap} is needed for the class-guided search for the rest of the programme. This map, however, changes as the sub-data pool changes throughout the cycle. Therefore, \texttt{allTuple} is needed to refer back to the original, pre-modification input when necessary.
 
 \item[Output: ] A list of sub-ranges in float values that passed the support-confidence check (\texttt{attributeRangeList}). It also returns a modified version of allClassMap, which \texttt{AllClassMap} is now divided into two maps: \textit{attributeRange} and \textit{attributeTuple}.
   
@@ -89,46 +112,212 @@ Map, however, diversifies into two:
 	
 	\item One for storing tuples that each sub-range in \texttt{attributeRangeMap} covers. That means \texttt{attributeRangeMap} has its key quantity equal to the number of sub-ranges available (that are also recorded in \texttt{attributeRangeList}), and each key maps to a list of tuples that is covered by that range.
 	
-	Initially, only \texttt{attributeRangeMap} was implemented as it was thought that only attribute and its sub-ranges were necessary to be recorded formally. Tuples covered by sub-ranges were thought to be retrievable by tracing back to the original \texttt{AllClassMap}.
-	However, as data was partitioned further the longer the algorithm persisted, there was no fixed map that remained relevant for the entire duration of the programme. With the dynamic nature of tuple sets, it was safer to recorded them right when their sub-ranges were being processed. Thus there was a need for the additional \texttt{attributeTupleMap}.
+Initially, only \texttt{attributeRangeMap} was implemented as it was thought that only attribute and its sub-ranges were necessary to be recorded formally. Tuples covered by sub-ranges were thought to be retrievable by tracing back to the original \texttt{AllClassMap}.
+	
+However, as data was partitioned further the longer the algorithm persisted, there was no fixed map that remained relevant for the entire duration of the programme. With the dynamic nature of tuple sets, it was safer to recorded them right when their sub-ranges were being processed. Thus there was a need for the additional \texttt{attributeTupleMap}.
 \end{itemize}
 
-WE ARE HERE 
+\item[Data type: ] For \texttt{attributeRangeMap}, a \texttt{LinkedHashMap} with \texttt{LinkedList<Integer>} as keys and \texttt{LinkedList<LinkedList<Float[]>>} as values is used. This map stores attribute number as key (thus \texttt{Integer} type cast) and ranges as value (thus \texttt{LinkedList<Float>} type cast). It must be noted that despite attribute number being a singular integer (from $1$ to $n$), \texttt{LinkedList} is implemented since attributes' ranges are combined at Generate phase. That means attribute number must be expandable to manage this new combination (e.g attribute $1$ and $2$ has associated ranges of $[1.1,1.5]$ and $[2.2, 2.6]$. Once these two ranges are combined to form larger ranges, attribute numbers are also combined i.e. to ${1,2}$ to manage this combined range in the map) - hence need for a \texttt{List}. Likewise, \texttt{LinkedList<Float>} is sufficient to manage a single range; when there are multiple ranges to be stored, an outer \texttt{LinkedList} must be used.
 
-\item[Data type: ] \texttt{LinkedList} (for tuples), \texttt{LinkedHashMap} (for class-based data partitioned map)
-
-\textit{Reason: } A \texttt{List} (without specified inner data type) is used for tuples since it needs multiple types of data (e.g. float number, string class value, integer order). In this case, \texttt{LinkedList} is used instead of \texttt{ArrayList} due to its ability to add and remove first and last elements more quickly than the alternative [SRC]. It is necessary to retrieve class value at faster rate as class value is the last element in the tuple.
-
-Similarly, a \texttt{LinkedHashMap} is used for faster retrieval rate in later parts. A \texttt{HashMap} is used for storing partitioned sub-data from class values since each partition of data needs to be recorded with its unique class value. It has String class as key and \texttt{LinkedList<LinkedList>} List of all tuples as values. 
+Similarly, For \texttt{attributeTupleMap}, a \texttt{LinkedHashMap} with \texttt{LinkedList<LinkedList<Float[]>>} as keys and \texttt{LinkedList<LinkedList>} as values. Keys in \texttt{attributeTupleMap} are \texttt{attributeRangeMap} values; the cross-reference makes for a convenient key retrieval between two maps. 
 
 \item[Class diagram: ] 
 
-Its class diagram is in Figure 4.1, showing two features:
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=5in]{figures/class_analyser}
+    \caption[Class Diagram for Phase II Analyse]{Class Diagram for Phase II Analyse}
+    \label{fig:figure4_3}
+\end{figure}
+
+Its class diagram is in Figure 4.3, which additionally shows a parentage link to $SubAnalyser$ class for Phase IV $Sub-Analyse$. It is the only instance of inheritence in the programme: $Analyser$ is used in the first iteration and its framework is re-used for code efficiency in $Sub-Analyser$ for second iteration onwards. For this subsection, only $Analyser$ is discussed; $SubAnalyser$ is to be explained in the next subsection.
+
+Class $Analyser$ contains seven features/methods:
+
 \begin{itemize}
-	\item scanData()
-	This method initialises two scanners, one to scan line-by-line data from csv file (i.e. tuples) and one to scan in-line elements (i.e. attributes).
-	It processes data into 1) allTuple (where all instances are recorded from the first scanner) and 2) Class values, Tuple order numbering and Tuple attributes (which is sorted by the second scanners).
-	The Class values become the parameter for the next method, where it helps create the Map that connects Class value to relevant set of Tuples.
-	\item sortData()
-	This method groups sets of tuples according to their Class value by checking their last String element. It sorts and partitions allTuple into sub-data pools, which are then passed on as parameter to the new class ($Analyser$).
+	\item{maxMin()} \\
+	This method is responsible for collecting (min, max) ranges for each attribute. For each of the Class value in the map, it goes through each attribute value of every corresponding tuples. A \texttt{Collections.sort()} method is applied to find the minimum and maximum value of each attribute. In the first iteration, only one range is found for each attribute.
+	
+	For each range, it then appends {attribute number, range} to \texttt{attributeRangeMap}. It also retrieves tuples that are covered under this range and appends {range, range-covered tuple} to \texttt{attributeTupleMap}. 
+	
+	These two maps, accompanied by the Class value, are passed onto the next method, \texttt{convertToBinary} to prepare binary array for max-sum analysis.
+	
+	\item{convertToBinary()} \\
+	For each attribute in \texttt{attributeRangeMap}, this method retrieves the respective (min, max) range. Each range is used as key to search in \texttt{attributeTupleMap} to obtain tuples that are covered by this range. It then goes through each tuple to retrieve its Class tag and if this tag matches the Class value received from previous method, it appends $1$ to a new \texttt{binaryList}, otherwise appends $-1$. 
+	
+	This binary list is sent to the next method \texttt{maxSum()} for sub-range analysis.
+	
+	\item{maxSum()} \\
+	For each of the binary list, this method performs a similar analysis to Kadane's max-sum algorithm [SRC]: Starting with a \texttt{sum} of $0$, it traverses through the list values while adding this value to the initial \texttt{sum}, also keeping track of the element position in an \texttt{attributePosition} array. If \texttt{sum} is positive, it moves on while taking the same action. However, if it gets negative, it resets the \texttt{sum} to $0$ and also restart the \texttt{attributePosition} array. This essentially means that the current array contains too many wrong class tag if continued (i.e. too many $-1$s), and thus not necessary to proceed into more negatives. 
+	
+	However, while a new \texttt{attributePosition} array is created starting from this position, the current array is recorded instead of discarded, which is also considered as a sub-range ready for next iteration. This step differentiates this method from the original Kadane's since Kadane's seeks for only one optimal range, constrasting to this method where multiple sub-ranges are desired.
+	
+	The process is repeated until the end of array is reached. The outcome can be 1) no \texttt{attributePosition} array or sub-ranges found, 2) one \texttt{attributePosition} array or sub-range found, or 3) multiple \texttt{attributePosition} array or sub-ranges found. Regardless, if available, sub-ranges (in \texttt{attributePosition} array format) are recorded into an \texttt{List} and passed onto next method, \texttt{checkSupportConfidence()}, for threshold test. 
+	
+	It must be noted that, initially, whenever a \texttt{attributePosition} array is found, \texttt{checkSupportConfidence()} is called straight away so a threshold test is performed whenever \texttt{sum} turns negative. However, it means that \texttt{checkSupportConfidence()} might be called excessively in the case of a negative streak for \texttt{sum}, thus might be safer to call it after max-sum is finished. 
+	
+	\item{checkSupportConfidence()} \\
+	 For each position array in \texttt{attributePosition}, support and confidence is measured:
+	  
+	 Support $\sigma$ = array size / binary list size \\
+	 Confidence $\delta$ = number of positive occurence within array / array size
+	 
+	 Array size is calculated by the subtraction of last and first position e.g for position array $[10,21]$, the array size is $21 - 10 = 11$. Positive occurence is counted by traversing through binary values that are covered under this position range e.g for position array $[10,21]$, the programme retrieves value of element number $[10]$, $[11]$,...,$[21]$ in binary list and counts the quantity of $1$s against $-1$. 
+	 
+	 These measures are compared to their corresponding user-specified thresholds in a conditional clause. If an array passes both thresholds, it is accepted as a candidate sub-range for next iteration. Accepted arrays are added into a new \texttt{list} to be passed onto the next method, \texttt{convertPositionToRange} where it is converted from integer position to its respective float range values.
+	 
+	 (Initially, no new \texttt{List} was needed as a loop was constructed so that rejected arrays were removed from the list instead of adding the accepted ones into new list. However, Java ejected \texttt{ConcurrentModificationException} as it prohibited modification when a list is in iteration, hence the change.)
+	
+	\item{convertPositionToRange()} \\
+	For each accepted position array in the new  texttt{attributePosition}, this method converts position (integer) to its relevant range value (float). It uses \texttt{attribtuteTupleMap} to retrieve the tuples covered under this range, then seeks for the two tuples that lies at specified position. For instance, a position array $[10,21]$ represents the attribute value of tuples at position $[10]$ and $[21]$ in the relevant tuple set. Within these two tuples, attribute value is reclaimed i.e. tuple $t_1 = {0, 1.2, 1.5, 2.3, class1}$ returns attribute $1$ value as $1.2$. Thus $[10,21]$ is converted to range e.g $[1.2, 2.4]$ with this method.
+	
+	Once done, the converted ranges are recorded into an \texttt{attributeRangeList}. If it is in the first iteration, this list is passed onto the \texttt{appendToMap()} method in order to modify the \texttt{attributeRangeMap} and \texttt{attributeTupleMap} for the next iteration. However, if it is second iteration or above, nothing is done further although these ranges can be retrieved by a \texttt{get()} method to be sent to the next iteration. This is because for the first iteration, all attributes are processed at once and map is updated completely after loop. However, for the second iteration onwards, only one (combined) attribute is considered for each loop, thus the map is not completely changed so no need for modification. 
+	
+	\item{appendToMap()} \\
+	This method, while only applies to the first iteration, is responsible for updating the \texttt{attributeTupleMap} and \texttt{attributeRangeMap} for the next iteration by 1) new sub-range and 2) new sub-range covered tuple set. In details, for each (converted) sub-range in \texttt{attributeRangeList}, it obtains a new sub-set of tuples that are covered by this sub-range. This sub-set of tuples are cut out from \texttt{attributeTupleMap} by using a loop that searches for tuples with attributes falling under this range. The new covered tuple set is appended to \texttt{attributeTupleMap}. The sub-range itself is also appended to \texttt{attributeRangeMap}. 
+	
+	\item{getAttributeRangeList()} \\
+	This method is a \texttt{get()} method to grab \texttt{attributeRangeList} directly to the next iteration (only used for second iteration onwards where \texttt{appendToMap()} is skipped). 
 	
 \end{itemize}
 
-\begin{figure}[t]
-    \centering
-    \includegraphics[width=5in]{figures/class_analyser}
-    \caption[A Class Diagram for Phase II Analyser]{A Class Diagram for Phase II Analyser}
-    \label{fig:figure4_2}
-\end{figure}
 
 \item[Activity diagram: ] 
-\end{description}
 
-FOR FORMATTING
+FIG PLS
+\end{description}
 
 \subsection{Phase III Generate}
 
+\begin{description}
+
+\item[Aim: ] As another core module of the programme, this class concerns with the following aims:
+\begin{itemize}
+	\item{To combined sub-ranges found in the previous module and form larger associated ranges, by a method resembles A-priori.} 
+	\item{To check if one sub-range is extendable with another by checking its attribute value.} 
+	\item{To check if a candidate combination of two sub-ranges can satisfies support-confidence and extra density threshold since multiple ranges are involved.} 
+	\item{To finalise the rule if no possible combination can be made i.e use the last associated ranges as final rule and send them to the last phase $Monitor$.} 
+\end{itemize}
+
+\item[Input: ] This class input is the updated range and tuple map from the previous class and the original tuple set as reference when applicable:
+\begin{itemize}
+	\item{\texttt{allTuple}:  all original instances in dataset.} 
+	\item{\texttt{attributeRangeMap}: with attribute number as kes and new (one or more) sub-ranges as value.}
+	\item{\texttt{attributeTupleMap}: with each sub-range as key and tuple set covered under sub-range as value.}
+\end{itemize}
+
+\textit{Reason: } \texttt{allTuple} is needed to be passed onto the next $SubAnalyser$ class as reference to the original dataset when applicable. \texttt{attributeRangeMap} and \texttt{attributeTupleMap} are needed as new data point for pairing associated ranges.
+
+\item[Output: ] Firstly, $Generator$ generates new extended associated ranges and passes them as output to the next $SubAnalyser$ class in order to do range analysis again (similar to $Analyser$ content). Secondly, as long as there is possible pairing between associated ranges, $Generator$ operates a recursive call to itself that keeps generating larger associated ranges. However, if no combination is possible, $Generator$ ends the recursive call and move onto finalising the rule by calling its \texttt{finaliseRule()} method. 
+  
+\textit{Reason: } As $SubAnalyser$ is essentially $Analyser$ with additional density checking method, $Generator$ can repeat an iteration where 1) new sub-ranges are merged to form candidate associated ranges and 2) candidate ranges are then checked for threshold measures and if they pass the test, sub-ranges are sent to $Generator$ for another recursive call to repeat the whole iteration until no combination is possible.
+
+\item[Data type: ] Uniformly, the new \texttt{attributeRangeMap} and \texttt{attributeTupleMap} remains to be \texttt{LinkedHashMap} with similar structure to that in $Analyser$ so that it could be recognised by Java as a compatible parameter in the next iteration.
+
+Moreover, the \texttt{LinkedList} for attribute number and float range helps improve the efficiency in extending the new element, by simply adding new element to the end of array which is the strongest aspect of \texttt{LinkedList}.
+
+\item[Class diagram: ] 
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=5in]{figures/class_generator}
+    \caption[Class Diagram for Phase III Generate]{Class Diagram for Phase III Generate}
+    \label{fig:figure4_4}
+\end{figure}
+
+Its class diagram is in Figure 4.4, which presents five features/methods:
+
+\begin{itemize}
+	\item{aPriori()} \\
+	This method combines sub-ranges by going through each range in \texttt{attributeRangeMap} and attempts to combine it with another among the remaining ranges. When a combination is planned, the next step is to get a new attribute number combination (combinedKey) and its respective sub-range combination (combinedRange). 
+	
+	\item{setACombinedKey()} \\
+	This method sets up the combination of attribute number e.g if attribute $1$ and $2$ has two ranges that are in pairing, a new combined key is generated to be $[1, 2]$.
+	
+	\item{setACombinedRange()} \\
+	This method sets up the combination of range e.g if attribute $1$ has range $[1.2, 2.4]$ that is in pairing with range $[3.4,3.7]$ from attribute $2$, then a new combined ranage is generated to be ${[1.2, 2.4], [3.4, 3.7]}$.
+	
+	Initially, this method is merged with \texttt{setACombinedKey} method; however, it is separated for readability.
+	
+	\item{analyseNewCombination()} \\
+	 Once new combined key and range are generated, this method sends both to the next $SubAnalyser$ class to observe whether the new (candidate) combined range could satisfies specified conditions for the next iteration. If it does, the range is returned by a \texttt{get()} method within $SubAnalyser$ to this method. 
+	 
+	 If the returned range is $Null$, it means threshold was not satisfied thus the programme returns to \texttt{aPriori()} method to seek for new combination. However, if there is (one or more) returned range from $SubAnalyse$, this method will take the combined range and key to append it to map (similar method to \texttt{appendToMap}). A \texttt{newAttributeRangeMap} and \texttt{newAttributeTupleMap} will replace \texttt{attributeRangeMap} and \texttt{attributeTupleMap} in the last iteration respectively.
+	
+	\item{finaliseRule()} \\
+	This method occurs only when there is no possible pairing left. A conditional clause in the $Generator$ constructor calls this method when there is only one attribute number left in \texttt{newAttributeRangeMap}. Essentially, it means all keys are combined into one largest key combination and thus no other combination is possible. It acts as a stopping point to recursive $Generator$ calls and procees to send the final combination as classification rules to the next class $Monitor$ for evaluation and display.
+	
+\end{itemize}
+
+\item[Activity diagram: ] 
+
+FIG PLS
+\end{description}
+
 \subsection{Phase IV Sub-Analyse}
+
+\begin{description}
+
+\item[Aim: ] As a child-class of $Analyser$, this class analyses the combined range by calling some $Analyser$ range-analysing method. It also provides extra density check and strict-adjust subset of tuples covered by candidate ranges. In other words, its aims are:
+\begin{itemize}
+	\item{To get tuples covered by both ranges and set it as new subset of tuples used to perform threshold tests.}
+	\item{To check for density within combined ranges.} 
+	\item{To recall range analysing method in parent class $Analyser$ including \texttt{convertToBinary}, \texttt{maxSum()}, \texttt{checkSupportConfidence()} and \texttt{convertPositionToRange}.} 
+	\item{To return new combined range as a confirmation of combined range passing threshold check to $Generator$ through a \texttt{get()} method.}
+\end{itemize}
+
+\item[Input: ] This class input is the updated range and tuple map from the previous class, with the new combined key and combined range to analyse. Due to being a child class to $Analyser$, it has to intialises with \texttt{allClassMap} and \texttt{allTuple}. However, since they are not needed in this class, it was decided to drop them i.e. passing $Null$ as paramaters to those two in constructor:
+\begin{itemize}
+	\item{\texttt{allTuple}:  Now presented as $Null$.} 
+	\item{\texttt{allClassMap}: Now presented as $Null$.}
+	\item{\texttt{attributeTupleMap}: Same as that in $Generator$.}
+	\item{\texttt{attributeRangeMap}: Same as that in $Generator$.}
+	\item{\texttt{aCombinedKey}: combined key from $Generator$ to retrieve ranges when applicable.}
+	\item{\texttt{aCombinedRange}: combined range from $Generator$ to apply threshold tests upon.}
+\end{itemize}
+
+\textit{Reason: } Unlike $Analyser$ in the first iteration where all attributes are considered, for the second iteration onwards with $SubAnalyser$ only one (combined) attribute and one (combined) range are considered at one time. Therefore only one (combined) range \texttt{aCombinedRange} is analysed within this class.
+
+\item[Output: ] A new combined range is returned by a \texttt{get()} method to $Generator$ once this class is done running, if the combined range passes specified threshold tests. However, it returns $Null$ if threshold were not satisfied.
+  
+\textit{Reason: } As $SubAnalyser$ calls $Analyser$ method, new sub-ranges can be found from the combined range through \texttt{maxSum()} analysis. Therefore, one or multiple ranges could be returned from $Analyser$ once the methods finished. This set of range is then grabbed by $SubAnalyser$ and returned to $Generator$, indicating that there is a possible pair tested to be applicable for the next iteration. By $Analyser$ returning $Null$ when threshold requirements failed to be met, $SubAnalyser$ will also return $Null$ to $Generator$ which signifies $Generator$ to seek for new pairing.
+
+\item[Data type: ] As discussed, using nested \texttt{LinkedList}, attribute number and range can be extended unrestrictedly. For the updated mutual tuple set, a \texttt{LinkedHashSet}. \texttt{LinkedHashSet} is used as it avoids duplication while keeping elements in order [SRC]. 
+
+\item[Class diagram: ] 
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=5.5in]{figures/class_subanalyser}
+    \caption[Class Diagram for Phase IV Sub-Analyse]{Class Diagram for Phase IV Sub-Analyse}
+    \label{fig:figure4_5}
+\end{figure}
+
+Its class diagram is in Figure 4.5, which presents five features/methods:
+
+\begin{itemize}
+	\item{strictAdjust()} \\
+ 	This method seeks to construct 1) a set that contains all tuples that is at least covered by one range and 2) a mutual set of tuples where only tuples that are covered under both ranges are appended. Both sets are then passed onto next method \texttt{checkDensity()}.
+	
+	\item{checkDensity()} \\
+	This method uses the two tuple sets from \texttt{stictAdjust()} method to perform density check on the combined range. 
+	WE ARE HERE
+	
+	\item{getNewCombinedRange()} \\
+
+	
+
+	
+	\item{getNewCombinedKey()} \\
+
+	 
+	
+	\item{getNewMutualTupleList()} \\
+
+	
+\end{itemize}
+
+\end{description}
 
 \subsection{Phase V Monitor}
 
