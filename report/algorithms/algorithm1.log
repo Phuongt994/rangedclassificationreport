@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.8.10)  6 SEP 2016 20:22
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.8.10)  9 SEP 2016 20:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -14,7 +14,7 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.1 \begin{SgAlgorithm}
-                       [!htpb]
+                       [t]
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
@@ -27,35 +27,92 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.1 \begin{SgAlgorithm}[
-                        !htpb]
+                        t]
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 Missing character: There is no [ in font nullfont!
-Missing character: There is no ! in font nullfont!
-Missing character: There is no h in font nullfont!
 Missing character: There is no t in font nullfont!
-Missing character: There is no p in font nullfont!
-Missing character: There is no b in font nullfont!
 Missing character: There is no ] in font nullfont!
 ! Undefined control sequence.
-l.2 	\KwIn
-          {$T(A_1,A_2,...,A_m,C)$ where $A_i$ is numerical and $C$ is catego...
+l.2     \SetKwInOut
+                   {Input}{Input}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
+Missing character: There is no I in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no I in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no t in font nullfont!
+! Undefined control sequence.
+l.3     \SetKwInOut
+                   {Output}{Output}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+Missing character: There is no O in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no O in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no t in font nullfont!
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 1--4
+[]
+ []
+
+! Undefined control sequence.
+l.5     \Input
+              {$T(A_1, A_2, A_3,..A_m, C)$, where $A_{j,m}$ as $1 \leq j \le...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.5     \Input{$
+                T(A_1, A_2, A_3,..A_m, C)$, where $A_{j,m}$ as $1 \leq j \le...
+
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 2.
+(Font)              <7> on input line 5.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 2.
+(Font)              <5> on input line 5.
+Missing character: There is no , in font nullfont!
 Missing character: There is no w in font nullfont!
 Missing character: There is no h in font nullfont!
 Missing character: There is no e in font nullfont!
 Missing character: There is no r in font nullfont!
 Missing character: There is no e in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no s in font nullfont!
 Missing character: There is no i in font nullfont!
 Missing character: There is no s in font nullfont!
 Missing character: There is no n in font nullfont!
@@ -83,16 +140,18 @@ Missing character: There is no i in font nullfont!
 Missing character: There is no c in font nullfont!
 Missing character: There is no a in font nullfont!
 Missing character: There is no l in font nullfont!
+Missing character: There is no . in font nullfont!
 ! Undefined control sequence.
-l.3     \KwOut
-              {A set of range-based classification rule $R$}
+l.6     \Output
+               {$R$, a set of range-based classification rules.}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-Missing character: There is no A in font nullfont!
+Missing character: There is no , in font nullfont!
+Missing character: There is no a in font nullfont!
 Missing character: There is no s in font nullfont!
 Missing character: There is no e in font nullfont!
 Missing character: There is no t in font nullfont!
@@ -127,92 +186,24 @@ Missing character: There is no r in font nullfont!
 Missing character: There is no u in font nullfont!
 Missing character: There is no l in font nullfont!
 Missing character: There is no e in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no . in font nullfont!
 ! Undefined control sequence.
-l.4 	\ForEach
-             {$c_j \in C$}{
+l.7     \ForEach
+                {$c_j \in C$}{
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.5 		$T_{c_j} \leftarrow select(T,c_j)$ \;
-                                           
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-Missing character: There is no C in font nullfont!
-Missing character: There is no R in font nullfont!
-! Missing $ inserted.
-<inserted text> 
-                $
-l.6 		$CR_
-          1 \leftarrow {[v_{min}, v_{max}]_{A_1}, [v_{min}, v_{max}]_{A_2},....
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
 
 Missing character: There is no f in font nullfont!
 Missing character: There is no r in font nullfont!
 Missing character: There is no o in font nullfont!
 Missing character: There is no m in font nullfont!
-! Missing $ inserted.
-<inserted text> 
-                $
-l.6 ...v_{min}, v_{max}]_{A_m}}$ from $T_{c_j}$ \;
-                                                  
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
 ! Undefined control sequence.
-l.7 		\For
-          {($k = 1, CR_k \neq \varnothing, k++$)}{
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.7 		\For{($
-             k = 1, CR_k \neq \varnothing, k++$)}{
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-Missing character: There is no k in font nullfont!
-Missing character: There is no = in font nullfont!
-Missing character: There is no 1 in font nullfont!
-Missing character: There is no , in font nullfont!
-Missing character: There is no C in font nullfont!
-Missing character: There is no R in font nullfont!
-! Missing $ inserted.
-<inserted text> 
-                $
-l.7 		\For{($k = 1, CR_
-                       k \neq \varnothing, k++$)}{
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Undefined control sequence.
-l.7 		\For{($k = 1, CR_k \neq \varnothing
-                                         , k++$)}{
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-Missing character: There is no ) in font nullfont!
-! Undefined control sequence.
-l.8 			$LR_k \leftarrow \varnothing
-                                   $ \
+l.9     	\For
+             {$(k = 1, CR_k \neq \varnothing, k++)$}{
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -220,8 +211,8 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.9 			\ForEach
-               {$cr \in CR_k$}{
+l.9     	\For{$(k = 1, CR_k \neq \varnothing
+                                            , k++)$}{
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -229,8 +220,8 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.11 				\ForEach
-                 {$s \in S$}{
+l.10     		$LR_k \leftarrow \varnothing
+                                       $
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -238,8 +229,8 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.12 					\If
-             {$\sigma(s) \geq \sigma_{min}$ \textbf{and} $\delta(s) \geq \de...
+l.11     		\ForEach
+                   {$cr \in CR_k$}{
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -247,8 +238,8 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.13 						\eIf
-               {$k = 1$}{$LR_k \leftarrow LR_k \cup s$}{
+l.13     			\ForEach
+                    {$s \in S$}{
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -256,98 +247,271 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.14 							\lIf
-                {$\gamma(s) \geq \gamma_{min}$}{
+l.14     				\If
+                {$\sigma(s) \geq \sigma_{min}$ \textbf{and} $\gamma(s) \geq ...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.20 			$R \leftarrow R \cup LR_k$ \;
-                                     
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Extra }, or forgotten $.
-l.21 			}
-         
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-Missing character: There is no C in font nullfont!
-Missing character: There is no R in font nullfont!
-! Missing $ inserted.
-<inserted text> 
-                $
-l.22 		$CR_
-           {k+1} \leftarrow generate(LR_k)$  \;
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.22 		$CR_{k+1} \leftarrow generate(LR_k)$  \;
-                                               
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Extra }, or forgotten $.
-l.23 		}
-        
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
 
 ! Undefined control sequence.
-l.24 	\Return
-             {$R$}
+l.15 	    				\If
+                 {$k = 1$}{
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-! Missing } inserted.
-<inserted text> 
-                }
-l.24 	\Return{$
-               R$}
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
+! Undefined control sequence.
+l.18     					\Else
+                   {
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
 
-Missing character: There is no R in font nullfont!
-! Extra }, or forgotten $.
-<recently read> }
-                 
-l.24 	\Return{$R$}
-                  
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
+! Undefined control sequence.
+l.19     						\If
+                  {$\delta(s \Rightarrow c_j) \geq \delta_{min}$}{
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
 
-! Extra }, or forgotten $.
-l.25 	}
-       
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
+! Undefined control sequence.
+l.27     	\Ret
+              {$R$}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \hbox (117.26073pt too wide) in paragraph at lines 5--29
+[]$\OML/cmm/m/it/10 T\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 A[]; A[]; A[]; ::A[]; C\
+OT1/cmr/m/n/10 )$
+ []
+
+
+Overfull \hbox (20.75414pt too wide) in paragraph at lines 5--29
+\OML/cmm/m/it/10 A[]$
+ []
+
+
+Overfull \hbox (15.55553pt too wide) in paragraph at lines 5--29
+\OT1/cmr/m/n/10 1 \OMS/cmsy/m/n/10 ^^T
+ []
+
+
+Overfull \hbox (15.246pt too wide) in paragraph at lines 5--29
+\OML/cmm/m/it/10 j \OMS/cmsy/m/n/10 ^^T
+ []
+
+
+Overfull \hbox (8.78014pt too wide) in paragraph at lines 5--29
+\OML/cmm/m/it/10 m$
+ []
+
+
+Overfull \hbox (7.86249pt too wide) in paragraph at lines 5--29
+\OML/cmm/m/it/10 C$
+ []
+
+
+Overfull \hbox (7.67015pt too wide) in paragraph at lines 5--29
+\OML/cmm/m/it/10 R$
+ []
+
+
+Overfull \hbox (17.98552pt too wide) in paragraph at lines 5--29
+\OML/cmm/m/it/10 c[] \OMS/cmsy/m/n/10 2
+ []
+
+
+Overfull \hbox (7.86249pt too wide) in paragraph at lines 5--29
+\OML/cmm/m/it/10 C$
+ []
+
+
+Overfull \hbox (32.71924pt too wide) in paragraph at lines 5--29
+\OML/cmm/m/it/10 CR[] \OMS/cmsy/m/n/10  
+ []
+
+
+Overfull \hbox (213.58252pt too wide) in paragraph at lines 5--29
+\OT1/cmr/m/n/10 ([\OML/cmm/m/it/10 v[]; v[]\OT1/cmr/m/n/10 ][]\OML/cmm/m/it/10 
+; \OT1/cmr/m/n/10 [\OML/cmm/m/it/10 v[]; v[]\OT1/cmr/m/n/10 ][]\OML/cmm/m/it/10
+ ; :::\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 v[]; v[]\OT1/cmr/m/n/10 ][])$
+ []
+
+
+Overfull \hbox (13.65335pt too wide) in paragraph at lines 5--29
+\OML/cmm/m/it/10 T[]$
+ []
+
+
+Overfull \hbox (19.96526pt too wide) in paragraph at lines 5--29
+\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 k \OT1/cmr/m/n/10 =
+ []
+
+
+Overfull \hbox (40.37549pt too wide) in paragraph at lines 5--29
+\OT1/cmr/m/n/10 1\OML/cmm/m/it/10 ; CR[] \OMS/cmsy/m/n/10 6\OT1/cmr/m/n/10 =
+ []
+
+
+Overfull \hbox (17.74306pt too wide) in paragraph at lines 5--29
+\OML/cmm/m/it/10 ; k \OT1/cmr/m/n/10 +
+ []
+
+
+Overfull \hbox (11.6667pt too wide) in paragraph at lines 5--29
+\OT1/cmr/m/n/10 +)$
+ []
+
+
+Overfull \hbox (32.09636pt too wide) in paragraph at lines 5--29
+\OML/cmm/m/it/10 LR[] \OMS/cmsy/m/n/10  $
+ []
+
+
+Overfull \hbox (18.56133pt too wide) in paragraph at lines 5--29
+\OML/cmm/m/it/10 cr \OMS/cmsy/m/n/10 2
+ []
+
+
+Overfull \hbox (20.37555pt too wide) in paragraph at lines 5--29
+\OML/cmm/m/it/10 CR[]$
+ []
+
+
+Overfull \hbox (19.48604pt too wide) in paragraph at lines 5--29
+\OML/cmm/m/it/10 S \OMS/cmsy/m/n/10  
+ []
+
+
+Overfull \hbox (67.88504pt too wide) in paragraph at lines 5--29
+\OML/cmm/m/it/10 max[]um\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 cr; c[]\OT1/cmr/m/n/1
+0 )$
+ []
+
+
+Overfull \hbox (14.1319pt too wide) in paragraph at lines 5--29
+\OML/cmm/m/it/10 s \OMS/cmsy/m/n/10 2
+ []
+
+
+Overfull \hbox (6.70831pt too wide) in paragraph at lines 5--29
+\OML/cmm/m/it/10 S$
+ []
+
+
+Overfull \hbox (29.09372pt too wide) in paragraph at lines 5--29
+\OML/cmm/m/it/10 ^^[\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 s\OT1/cmr/m/n/10 ) \OMS/c
+msy/m/n/10 ^^U
+ []
+
+
+Overfull \hbox (21.08286pt too wide) in paragraph at lines 5--29
+\OML/cmm/m/it/10 ^^[[]$
+ []
+
+
+Overfull \hbox (18.36794pt too wide) in paragraph at lines 5--29
+\OT1/cmr/bx/n/10 and
+ []
+
+
+Overfull \hbox (28.75366pt too wide) in paragraph at lines 5--29
+\OML/cmm/m/it/10 ^^M\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 s\OT1/cmr/m/n/10 ) \OMS/c
+msy/m/n/10 ^^U
+ []
+
+
+Overfull \hbox (20.54604pt too wide) in paragraph at lines 5--29
+\OML/cmm/m/it/10 ^^M[]$
+ []
+
+
+Overfull \hbox (16.07635pt too wide) in paragraph at lines 5--29
+\OML/cmm/m/it/10 k \OT1/cmr/m/n/10 =
+ []
+
+
+Overfull \hbox (5.00002pt too wide) in paragraph at lines 5--29
+\OT1/cmr/m/n/10 1$
+ []
+
+
+Overfull \hbox (32.09636pt too wide) in paragraph at lines 5--29
+\OML/cmm/m/it/10 LR[] \OMS/cmsy/m/n/10  
+ []
+
+
+Overfull \hbox (25.98532pt too wide) in paragraph at lines 5--29
+\OML/cmm/m/it/10 LR[] \OMS/cmsy/m/n/10 [
+ []
+
+
+Overfull \hbox (4.6875pt too wide) in paragraph at lines 5--29
+\OML/cmm/m/it/10 s$
+ []
+
+
+Overfull \hbox (26.17703pt too wide) in paragraph at lines 5--29
+\OML/cmm/m/it/10 ^^N\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 s \OMS/cmsy/m/n/10 )
+ []
+
+
+Overfull \hbox (22.98553pt too wide) in paragraph at lines 5--29
+\OML/cmm/m/it/10 c[]\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^U
+ []
+
+
+Overfull \hbox (19.81317pt too wide) in paragraph at lines 5--29
+\OML/cmm/m/it/10 ^^N[]$
+ []
+
+
+Overfull \hbox (20.44788pt too wide) in paragraph at lines 5--29
+\OML/cmm/m/it/10 R \OMS/cmsy/m/n/10  
+ []
+
+
+Overfull \hbox (14.33684pt too wide) in paragraph at lines 5--29
+\OML/cmm/m/it/10 R \OMS/cmsy/m/n/10 [
+ []
+
+
+Overfull \hbox (21.35413pt too wide) in paragraph at lines 5--29
+\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 s \OMS/cmsy/m/n/10 )
+ []
+
+
+Overfull \hbox (12.43002pt too wide) in paragraph at lines 5--29
+\OML/cmm/m/it/10 c[]\OT1/cmr/m/n/10 )$
+ []
+
+
+Overfull \hbox (43.27832pt too wide) in paragraph at lines 5--29
+\OML/cmm/m/it/10 CR[] \OMS/cmsy/m/n/10  
+ []
+
+
+Overfull \hbox (65.88242pt too wide) in paragraph at lines 5--29
+\OML/cmm/m/it/10 generate\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 LR[]\OT1/cmr/m/n/10 
+)$
+ []
+
+
+Overfull \hbox (7.67015pt too wide) in paragraph at lines 5--29
+\OML/cmm/m/it/10 R$
+ []
 
 
 ! LaTeX Error: \caption outside float.
@@ -356,12 +520,85 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.26     \caption
-                 [Project Algorithm : Phase 1 (Analyse)]{Project Algorithm :...
+l.30     \caption
+                 [Project Algorithm Phase I Analyse]{Project Algorithm Phase...
 
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.30     \caption[
+                  Project Algorithm Phase I Analyse]{Project Algorithm Phase...
+
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no [ in font nullfont!
+Missing character: There is no P in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no j in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no A in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no h in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no P in font nullfont!
+Missing character: There is no h in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no I in font nullfont!
+Missing character: There is no A in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no y in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no ] in font nullfont!
+Missing character: There is no P in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no j in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no A in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no h in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no P in font nullfont!
+Missing character: There is no h in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no I in font nullfont!
+Missing character: There is no A in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no y in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no e in font nullfont!
 
 ! LaTeX Error: \begin{document} ended by \end{SgAlgorithm}.
 
@@ -369,38 +606,16 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.28 \end{SgAlgorithm}
+l.32 \end{SgAlgorithm}
                       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.28 \end{SgAlgorithm}
-                      
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
 ! Missing } inserted.
 <inserted text> 
                 }
-l.28 \end{SgAlgorithm}
-                      
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.28 \end{SgAlgorithm}
+l.32 \end{SgAlgorithm}
                       
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -416,11 +631,11 @@ my insertion and my current dilemma will both disappear.
 
  
 Here is how much of TeX's memory you used:
- 13 strings out of 493029
- 239 string characters out of 6136234
- 54087 words of memory out of 5000000
- 3648 multiletter control sequences out of 15000+600000
+ 12 strings out of 493029
+ 224 string characters out of 6136234
+ 55087 words of memory out of 5000000
+ 3647 multiletter control sequences out of 15000+600000
  3948 words of font info for 15 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 18i,4n,12p,136b,77s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 18i,2n,12p,147b,79s stack positions out of 5000i,500n,10000p,200000b,80000s
 !  ==> Fatal error occurred, no output PDF file produced!

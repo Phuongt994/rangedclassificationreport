@@ -1,27 +1,27 @@
 \chapter{Background}
 
-This section presents the concepts as well as the original algorithm itself. Dataset examples are provided for each concept. Step-by-step explanation is provided for the algorithm explanation.
+This section presents the concepts as well as the original algorithm structure. Dataset examples are provided for each concept. Step-by-step explanations are provided for the algorithm.
 
 % First section: Preliminaries
 \section{Preliminaries}
 
 Assuming that we have a dataset that could be presented as a table $T(A_1, A_2, A_3,..A_m, C)$, where $A_{j,m}$ as $1 \leq j \leq m$ are range attributes and $C$ is the categorical class value. A single tuple within $T$ is denoted as $t_k = (v_1,v_2,v_3..v_m,C)$ where $v_m$ is a value under $A_m$.
 
-A sample dataset served as an example for this section can be shown in Table 2.1 below: 
+A sample dataset served as an example for this section can be shown in Table 2.1: 
 
 \input{tables/table1} 
 
 \begin{description}
 
 \item[Definition 1 (range)]
-Assume within the domain of attribute $A$ exists two values $a$ and $b$ that represents a continuous range over $A_j$, denoted $r = [a,b]_{A_j}$. This range covers a set of values in $A$ that lies between $a$ and $b$. 
+Assume within the domain of attribute $A$ exists two values $a$ and $b$ that represent a continuous range over $A_j$, denoted $r = [a,b]_{A_j}$. This range covers a set of values in $A$ that lies between $a$ and $b$. 
 
 \textit{Example 1:} From Table 2.1, a range of $[0.64, 0.75]_{A_1}$ would cover a set of values $0.64$, $0.71$ and $0.75$ in $A_1$.
 
 \item[Definition 2 (cover)]
 Assume $r = [a,b]_{A_j}$ to be a range over attribute $A$. This range $r$ covers a set of tuples where their values are between $a$ and $b$ where $a \leq v_j \leq b$. This set of tuples that is covered by $r$ is denoted $\tau(r)$. 
 
-\textit{Example 2:} From Example 1, a range of $[0.64, 0.75]_{A_1}$ would cover a set of tuples $t_2, t_3, t_1$ hence its cover is $t_2, t_3, t_1$.
+\textit{Example 2:} From Example 1, a range of $[0.64, 0.75]_{A_1}$ would have a cover of tuples $t_2, t_3, t_1$, so its covered tuple set is $t_2, t_3, t_1$.
 
 \item[Definition 3 (associated ranges)]
 Assume $r_1 = [a_1,b_1]_{A_1}$ to be a range over $A_1$ and $r_2 = [a_2,b_2]_{A_2}$ to be a range over $A_2$. Those ranges are associated ranges if $\tau(r_1) \cap \tau(r_2) \neq \varnothing$ 
@@ -56,11 +56,10 @@ Assume similar settings from Definition 5, the density for $r$ in $T$ is:
 \end{description}
 
 
-
 % Section 3: Original Algorithm
 \section{Original algorithm}
 
-As stated, the algorithm provides a more efficient way to discover and combine associated ranges for larger rule sets. Instead of traversing through all possible combinations of ranges among all classes and attributes, this algorithm first divides the data into sub-data pools in accordance to its class value. Then, under each attribute, it searches for sub-ranges that could pass certain user-defined thresholds (confidence, support and density). These sub-ranges are then collected and ready to be tested for possible combinations between each other that passes certain thresholds similar to the previous step, which are then collected and ready to be tested for larger combinations. Additionally, after larger combinations are found, an extra adjustment step is done on class values of relevant tuples within the new associated ranges. Afterwards, new associated ranges are ready to be analysed again to find more possible sub-ranges and new combination of sub-ranges. This iteration continues until no possible combinations can be found, so that the last standing associated ranges are translated into the concluding classification rule for that class value. 
+The original algorithm provides a more efficient way to discover and combine associated ranges for larger rule sets. Instead of traversing through all possible combinations of ranges among all classes and attributes, this algorithm first divides the data into sub-data pools in accordance to its class value. Then, under each attribute, it searches for sub-ranges that could pass certain user-defined thresholds (confidence, support and density). These sub-ranges are then collected and ready to be tested for possible combinations between each other that passes certain thresholds similar to the previous step, which are then collected and ready to be tested for larger combinations. Additionally, after larger combinations are found, an extra adjustment step is done on class values of relevant tuples within the new associated ranges. Afterwards, new associated ranges are ready to be analysed again to find more possible sub-ranges and new combination of sub-ranges. This iteration continues until no possible combinations can be found, so that the last standing associated ranges are translated into the concluding classification rule for that class value. 
 
 To get a clearer structure of the algorithm, its proceedings can be divided into two phases:  
 
@@ -97,35 +96,37 @@ From Figure 2.1, a step-by-step explanation of this algorithm is as follows:
 \end{figure}
 
 
-
 \begin{description}
-\item[Step 1-2] As the beginning steps of the algorithm, they selects a set of tuples $t_1, t_2, t_3..t_N$ from $T$ that has class value $c_j \subset C$ and store them in $T_{c_j}$. 
+\item[Step 1-2] As the beginning steps of the algorithm, they selects a set of tuples $t_1, t_2, t_3..t_N$ from $T$ that has class value $c_j \in C$ and store them in $T_{c_j}$. 
+
 \textit{Example: } Using Table 2.1 from last section, for class $c_j$ where $j$ = 1 (class 1), tuple set $T_{c_1}$ under this class are: 
 
 \input{tables/table2} 
 
 \item[Step 3] In this single step, from $T_{c_j}$, for each attribute $A_i$ the algorithm derives a set of ranges $[v_{min}, v_{max}]_{A_i}$ for that attribute. These ranges are formed by seeking for the minimum and the maximum values of $A_i$ in $T_{c_j}$. This is denoted as candidate ranges $cr$, since they are still subjected to a check to see whether they have the required minimum thresholds needed to form the rules. 
-\textit{Example: } From Table 2.2, for each attribute a candidate range can be generated as follows: 
-$A_1 = [0.57, 0.75]$ 
-$A_2 = [1.21, 1.45]$ 
-$A_3 = [2.13, 3.11]$ 
-$A_4 = [3.97, 4.24]$ 
 
-\item[Step 4-13] In these remaining steps lie the core analysis of Phase I, which could be separated into three main components: sub-range derivation, threshold check and larger range generation. Firstly, for each range in $cr$, an analysis is performed to derive possible sub ranges from this range. The reason for this analysis is because for continuous ranges, $[v_{min}, v_{max}]_{A_i}$ could cover more than necessary tuples that consequently reduces the rule accuracy if not trimmed down. 
+\textit{Example: } From Table 2.2, for each attribute a candidate range can be generated as follows: 
+$A_1 = [0.57, 0.75]$, 
+$A_2 = [1.21, 1.45]$, 
+$A_3 = [2.13, 3.11]$,
+$A_4 = [3.97, 4.24]$.
+
+\item[Step 4-13] In these remaining steps lie the core analysis of Phase I, which could be separated into three main components: sub-range derivation, threshold check and larger range generation. Firstly, for each range in $cr$, an analysis is performed to derive possible sub ranges from this range. The reason for this analysis is because for continuous ranges, $[v_{min}, v_{max}]_{A_i}$ could cover more than necessary tuples that consequently reduces the rule accuracy if not trimmed down.
+ 
 \textit{Example: } Consider the example $A_1 = [0.57, 0.75]$ from the previous step. Using this range on the original set of tuples $T$ in Table 2.1, the tuples that the range covers are: 
 
 \input{tables/table3}
 
-Under this range $A_1 = [0.57, 0.75]$ which is a candidate rule, its cover of ${t_1,t_2,t_3,t_4}$ gives a $\frac{3}{4}$ correct classification. However, by adjusting the range to $A_1 = [0.68, 0.75]$ which covers ${t_1,t_3,t_4}$, it now gives $\frac{4}{4}$ correct classification. Although the support for this range is reduced, higher classification accuracy is achieved. Therefore it shows a need to prune(?) these candidate ranges before proceeding to the next step. The pruning process lies within step 7. 
+Under this range $A_1 = [0.57, 0.75]$ which is a candidate rule, its cover of ${t_1,t_2,t_3,t_4}$ gives a $\frac{3}{4}$ correct classification. However, by adjusting the range to $A_1 = [0.68, 0.75]$ which covers ${t_1,t_3,t_4}$, it now gives $\frac{4}{4}$ correct classification. Although the support for this range is reduced, higher classification accuracy is achieved. This adjustment step lies within step 7. 
 
 \item[Step 7] The pruning process is represented by the $analyse\_range$ function, where a method is implemented to find sub-ranges. This method is based on the solution to the max sum problem [SRC], which is for finding a maximal gained sub-array within a given array of discrete numbers (its details will be discussed further in the next section). To apply the similar approach to finding maximum sub-ranges, for class $c_j$, each tuple in $T_{c_j}$ that is covered by range $[v_{min}, v_{max}]_{A_i}$ is scored with $1$ if its class is $c_j$ and $-1$ otherwise. This is to convert continuous values into discrete (in this case, binary) scores of numbers, that are then used to calculate the max sum scores. Those max sum scores represents the candidate sub-ranges, which could be the desired sub-ranges once they satisfy the support confidence and density constraints. There can be multiple sub-ranges and thus all sub-ranges are collected and store the result in set $S$. Sub-ranges in set $S$ is checked in the following step 8-12 for threshold requirements. 
 
 \textit{Example: } From Table 2.3, $T_{A_1}$ where $A_1 = [0.57, 0.75]$ and the class value $c_1$ is $1$, the tuples ${t_1,t_2,t_3,t_4}$ are covered under this rule and can be presented in ascending order as: 
 \input{tables/table4}
 
-Assume the max-sum approach requires 100\% confidence i.e. correct classification ($c$ = 1) for each covered tuple, the resulted optimal binary array will be ${ 1 1 1 }$ which represents a sub-range $s = [0.68, 0.75]$ that covers tuples ${t_4,t_3,t_1}$ 
+Assume the max-sum approach requires 100\% confidence i.e. correct classification ($c$ = 1) for each covered tuple, the resulted optimal binary array will be ${ 1 1 1 }$ which represents a sub-range $s = [0.68, 0.75]$ that covers tuples ${t_4,t_3,t_1}$.
 
-\item[Step 8-10] These steps perform a support and density threshold check on sub-ranges in set $S$. For each sub-range $s$ in $S$, a threshold check is performed to see whether it has sufficient support and density specified (Step 9). If sub-range $s$ does, it is kept in $LR_k$ where candidate sub-ranges are stored to form larger associated ranges in the next iteration (Step 10). However, if it does not satisfy the specified thresholds, sub-range $s$ is discarded as it cannot be used to form larger associated ranges due to support and density measures being monotonic [SRC]. All checked ranges $s$ in $LR_k$ are then passed on for a final check on confidence threshold in the following step 11-13.
+\item[Step 8-10] These steps perform a support and density threshold check on sub-ranges in set $S$. For each sub-range $s$ in $S$, a threshold check is performed to see whether it has sufficient support and density specified (Step 9). If sub-range $s$ does, it is kept in $LR_k$ where candidate sub-ranges are stored to form larger associated ranges in the next iteration (Step 10). However, if it does not satisfy the specified thresholds, sub-range $s$ is discarded as it cannot be used to form larger associated ranges due to support and density measures being monotonic \cite{monotonic}. All checked ranges $s$ in $LR_k$ are then passed on for a final check on confidence threshold in the following step 11-13.
  
 \textit{Example: } From Table 2.4 where sub-range $s = [0.68,0.75]_{A_1}$ is found for attribute $A_1$, the support and density can be computed as follows:
 \[ \sigma_s = \frac{\{t_3,t_4,t_1\}}{\{t_2,t_4,t_3,t_1\}}\ = \frac{3}{4} = 0.75 \] 

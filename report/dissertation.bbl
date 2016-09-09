@@ -9,8 +9,17 @@ J.~Bentley, ``Programming pearls: algorithm design techniques,'' {\em Commun.
   ACM}, pp.~865--873, 2011.
 
 \bibitem{apriori}
-{\em Data Mining: Practical Machine Learning Tools and Techniques}.
+I.~Witten and E.~Frank, {\em Data Mining: Practical Machine Learning Tools and
+  Techniques}.
 \newblock Morgan Kaufmann, 2005.
+
+\bibitem{monotonic}
+G.~Florin, {\em Data Mining: Concepts, Models and Techniques}.
+\newblock Springer-Verlag, 2011.
+
+\bibitem{seclass}
+H.~Vliet, {\em Software Engineering: Third Edition: Principles and Practice}.
+\newblock Wiley, 2006.
 
 \bibitem{intellij}
 JetBrains, ``{IntelliJ IDEA the Java IDE}.''
@@ -21,20 +30,20 @@ Kentaur, ``{JetBrains Plugin Repository: SequencePlugin}.''
   \url{https://plugins.jetbrains.com/plugin/22?pr=}.
 
 \bibitem{eclipse}
-E.~Foundation, ``{Eclipse Neon}.'' \url{https://eclipse.org/}.
+Eclipse, ``{Eclipse Neon}.'' \url{https://eclipse.org/}.
 
 \bibitem{objectaid}
-O.~LLC, ``{ObjectAid UML Explorer}.'' \url{http://www.objectaid.com/}.
+ObjectAid, ``{ObjectAid UML Explorer}.'' \url{http://www.objectaid.com/}.
 
 \bibitem{github}
 GitHub, ``{How People Build Software - GitHub}.'' \url{https://github.com/}.
 
 \bibitem{githubproject}
-P.~Repository, ``Rangeclassification.''
+Repository, ``Rangeclassification.''
   \url{https://github.com/Phuongt994/rangedclassification}.
 
 \bibitem{githubreport}
-R.~Repository, ``Rangeclassificationreport.''
+Repository, ``Rangeclassificationreport.''
   \url{https://github.com/Phuongt994/rangedclassificationreport}.
 
 \bibitem{visualparadigm}
@@ -50,6 +59,10 @@ G.~H. B. P. P.~R. M.~Hall, E.~Frank and I.~H. Witten, ``{The WEKA Data Mining
 X.~W. et~al, ``Top 10 algorithms in data mining,'' {\em Knowledge and
   Information Systems}, vol.~14, no.~1, pp.~1--37, 2008.
 
+\bibitem{sphdtemplate}
+S.~Garg, ``{CTAN: SPhD template for LaTex}.''
+  \url{https://www.ctan.org/pkg/sphdthesis?lang=en}.
+
 \bibitem{Kohavi95astudy}
 R.~Kohavi, ``{A Study of Cross-Validation and Bootstrap for Accuracy Estimation
   and Model Selection},'' pp.~1137--1143, Morgan Kaufmann, 1995.
@@ -57,5 +70,9 @@ R.~Kohavi, ``{A Study of Cross-Validation and Bootstrap for Accuracy Estimation
 \bibitem{ucirepo}
 A.~Frank and A.~Asuncion, ``{UCI Machine Learning Repository}.''
   \url{http://archive.ics.uci.edu/ml}.
+
+\bibitem{maxminer}
+R.~Bayardo, ``{ in Proc. of the 1998 ACM-SIGMOD Int’l Conf. on Management of
+  Data},'' pp.~85--93, 1998.
 
 \end{thebibliography}

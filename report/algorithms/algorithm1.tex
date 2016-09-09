@@ -1,0 +1,30 @@
+\begin{SgAlgorithm}[t]
+    \SetKwInOut{Input}{Input}
+    \SetKwInOut{Output}{Output}
+    
+    \Input{$T(A_1, A_2, A_3,..A_m, C)$, where $A_{j,m}$ as $1 \leq j \leq m$ is numerical and $C$ is categorical.}
+    \Output{$R$, a set of range-based classification rules.}
+    \ForEach{$c_j \in C$}{
+    	$CR_1 \leftarrow [v_{min}, v_{max}]_{A_1}, [v_{min}, v_{max}]_{A_2},...[v_{min}, v_{max}]_{A_m}$ from $T_{c_j}$
+    	\For{$(k = 1, CR_k \neq \varnothing, k++)$}{
+    		$LR_k \leftarrow \varnothing$
+    		\ForEach{$cr \in CR_k$}{
+    			$S \leftarrow max_sum(cr, c_j)$
+    			\ForEach{$s \in S$}{
+    				\If{$\sigma(s) \geq \sigma_{min}$ \textbf{and} $\gamma(s) \geq \gamma_{min}$}{
+	    				\If{$k = 1$}{
+    						$LR_k \leftarrow LR_k \cup s$
+    						}
+    					\Else{
+    						\If{$\delta(s \Rightarrow c_j) \geq \delta_{min}$}{
+    							$R \leftarrow R \cup (s \Rightarrow c_j)$
+    						}
+    					}	
+    				}
+    			}
+    		$CR_{k+1} \leftarrow generate(LR_k)$
+    		}
+    	\textbf{Return } $R$
+    	}	
+    }			
+    \caption[Project Algorithm Phase I Analyse]{Project Algorithm Phase 

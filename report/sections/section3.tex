@@ -1,12 +1,12 @@
 \chapter{Project Algorithm}
 
-Based on the original algorithm discussed in the previous section, initially this project only aimed to implement the exact algorithm into hard code. However, during the implementation process, several adjustments were agreed to be made. Some adjustments (e.g additional steps in scanning data input, display final rules to screen) are for the neccessary code adaption i.e. pre-processing data for input and output, at beginning and end respectively. Others (e.g max-sum, threshold check, null-class converter) are for possible improvements in algorithmic in the programme. 
+Based on the original algorithm discussed in the previous section, the initial plan for the project is to implement the exact algorithm into code. However, during the implementation process, several adjustments were agreed to be made. Some adjustments (e.g additional steps in scanning data input, display final rules to screen) are for pre-processing data for input and output, at beginning and end respectively. Others (e.g max-sum, threshold check, null-class converter) are for possible improvements in algorithmic in the programme. 
 
 Respectively, for the technical-related changes, section 4 will discuss them in depth where the actual code implementation is concerned. For the algorithmic changes, they are to be discussed in the remaining sections below.
 
 \section{Similarities}
 
-As the project’s main goal is to implement the algorithm, the programme structure is entirely similar to the initial algorithm i.e. Phase I (Analyse) and Phase II (Generate) is kept in order. Details are explained in the following sub-sections. \\
+As the project`s main goal is to implement the algorithm, the programme structure is entirely similar to the initial algorithm i.e. Phase I (Analyse) and Phase II (Generate) is kept in order. Details are explained in the following sub-sections. \\
 
 
 \subsection{Project Phase I Analyse}
@@ -19,21 +19,20 @@ However, in this project, several steps are done differently in terms of algorit
 
 Phase II contains the range combination method (a-priori) and the additional adjustment step (null-class converter). In this project, the first method is implemented but the second part is replaced by an elimination step (eliminator): Firstly, the accepted sub-ranges from Phase I are considered and grouped with each other under the condition that one of them has an extendable range (step 1-7). Secondly, according to the original algorithm, an adjustment method is required by changing the class value of partly-covered ranges to Null (step 8). 
 
-However, instead of turning tuple's class value to $Null$ only, this project adopts a stricter policy: all partly-covered ranges are eliminated and not considered for the next iteration. It is due to the idea taken from the paper that those tuples are deemed to badly influence the rule accuracy in the long run. While they might as well get eliminated in the next max-sum iteration, the algorithm in this project does not at all consider those tuples to save on processing time and enhance the rule accuracy in exchange for less support. Hence the null-class converting process (step 8) is replaced with an elimination process. [SUPPORTINGPAPER?] Details will be discussed in the next section.
+However, instead of turning tuple's class value to $Null$ only, this project adopts a stricter policy: all partly-covered ranges are eliminated and not considered for the next iteration. It is due to the idea taken from the paper that those tuples are deemed to badly influence the rule accuracy in the long run. While they might as well get eliminated in the next max-sum iteration, the algorithm in this project does not at all consider those tuples to save on processing time and enhance the rule accuracy in exchange for less support. Hence the null-class converting process (step 8) is replaced with an elimination process. Details will be discussed in the next section.
 
 \section{Differences}
 
-As mentioned in the previous section, there are two main algorithmic changes in this project compared to the initial algorithm. They are:
-[FIG?]
+As mentioned in the previous section, there are two main algorithmic changes in this project compared to the initial algorithm:
 
 \subsection{Project Phase I Analyse} 
 
 \begin{itemize}
 	\item Max-sum method $\rightarrow$ maxsum() in detail \\
-	\textit{Original version}: Max-sum on multiple ranges - not elaborated on paper \\
-	\textit{Project version}: Max-sum on multiple ranges in details - elaborated \\
+	\textit{Original version}: Max-sum on multiple ranges - not elaborated \\
+	\textit{Project version}: Max-sum on multiple ranges - elaborated \\
 
-	\item Threshold checking method $\rightarrow$ separated check() \\
+	\item Threshold checking method $\rightarrow$ two separated check() \\
 	\textit{Original version}: Threshold check consists of three orderly checks: support-density and confidence \\
 	\textit{Project version}: Threshold check consists of two orderly checks for first iteration and three orderly checks for second iteration onwards. The order of each threshold check is also altered (for first iteration: support-confidence; for second iteration: density-support-confidence) \\
 \end{itemize}
@@ -46,10 +45,83 @@ As mentioned in the previous section, there are two main algorithmic changes in 
 	\textit{Project version}: a strict adjustment where partly covered tuples are complelely removed and not considered during the next iteration \\
 \end{itemize}
 
+The differences can be seen in the project algorithm in the next section.
 
 \section{Final Construction}
 
-Algorithm here but of course I am cursed to have files deleted before saving.
+Algorithm 3.1 shows the Project version of the original algorithm, beginning with Phase I Analyse: 
 
+\begin{SgAlgorithm}[!htbp]
+    \SetKwInOut{Input}{Input}
+    \SetKwInOut{Output}{Output}
+    
+    \Input{$T(A_1, A_2, A_3,..A_m, C)$, where $A_{j,m}$ as $1 \leq j \leq m$ is numerical and $C$ is categorical.}
+    \Output{$R$, a set of range-based classification rules.}
+    
+    \ForEach{$c_j \in C$}{
+    
+    	$CR_1 \leftarrow [v_{min}, v_{max}]_{A_1}, [v_{min}, v_{max}]_{A_2},...[v_{min}, v_{max}]_{A_m}$ from $T_{c_j}$
+    	
+    	\For{$(k = 1, CR_k \neq \varnothing, k++)$}{
+    	
+    		$LR_k \leftarrow \varnothing$
+    		
+    		\ForEach{$cr \in CR_k$}{
+    			$S \leftarrow max\_sum(cr, c_j)$
+    			
+    			\ForEach{$s \in S$}{
+    				\If{$\sigma(s) \geq \sigma_{min}$ \textbf{and} $\gamma(s) \geq \gamma_{min}$}{
+	    				\lIf{$k = 1$}{
+    						$LR_k \leftarrow LR_k \cup s$
+    						}
+    					\lElse{
+    						\lIf{$\delta(s \Rightarrow c_j) \geq \delta_{min}$}{
+    							$LR_k \leftarrow LR_k \cup (s \Rightarrow c_j)$
+    						}
+    					}	
+    				}
+    			}
+    		}
+    	$CR_{k+1} \leftarrow generate(LR_k)$
+    	}
+    }	
+    \textbf{return } $R$			
+    \caption[Project Algorithm Phase I Analyse]{Project Algorithm Phase I Analyse}
+    \label{algo:algo1}
+\end{SgAlgorithm}
 
+The differences can be seen in Step 6 ($max\_sum$ method) and Step 8-10, where a conditional clause $k = 1$ is used to separate the iteration: only in iteration 2 onwards would density check occurs.
 
+Algorithm 3.2 shows the Project version of Phase II Generate:
+
+\begin{SgAlgorithm}[!htbp]
+    \SetKwInOut{Input}{Input}
+    \SetKwInOut{Output}{Output}
+    
+    \Input{$LR_k, a set of associated ranges that are accepted from last phase$.}
+    \Output{$CR_{k+1}$, a set of candidate associated ranges.}
+    
+    $CR_{k+1} \leftarrow \varnothing$
+   
+    \ForEach{$ar \in LR_k$}{
+    
+    	$A \leftarrow getAttributes(ar)$
+    	
+    	\ForEach{$ar' \in LR_k$}{
+    	
+    		$A' \leftarrow getAttributes(ar')$
+
+    		\If{$first_{k-1}(A) = first_{k-1}(A')$ \textbf{and} $last(A) < last(A')$}{
+    		$cr \leftarrow [v_{min}, v_{max}]_{first(A)},...,[v_{min}, v_{max}]_{last(A)}, [v_{min}, v_{max}]_{last(A')}$
+    		
+    		$cr \leftarrow strict\_adjust(cr)$
+    		$CR_{k+1} \leftarrow CR_{k+1} \cup cr$
+ 			}
+    	}    	
+    }
+    \textbf{return } $CR_{k+1}$				
+    \caption[Project Algorithm Phase II Generate]{Project Algorithm Phase II Generate}
+    \label{algo:algo2}
+\end{SgAlgorithm}
+
+The differences can be seen in step 8, where a strict-adjust method is applied instead of the originally method. Structurally, no changes are made.

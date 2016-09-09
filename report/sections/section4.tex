@@ -14,12 +14,12 @@ From Table 4.1, a detailed structure for the programme can be presented in an Ac
 \begin{figure}[h]
     \centering
     \includegraphics[width=6.5in, height=6.8in]{figures/activity_overview}
-    \caption[Class overview: Activity Diagram]{Class overview: Activity Diagram}
+    \caption[Class Overview: Activity Diagram]{Class Overview: Activity Diagram}
     \label{fig:figure4_1}
 \end{figure}
 
 
-Details will be discussed in sections below for each phase. To demonstrate the structure visually, a Class Diagram and an Activity Diagram is shown for each phase, that is represented by each class. Reason is because Class Diagram is the most common representation for an overview within and between classes [SRC]. A Sequence Diagram could have been an alternative to Activity Diagram; however, Sequence Diagram fails to demonstrate the actual data flow as the programme needs to call different functions or initialise different objects in different iteration. It means the sequences between classes change depending on which round the programme is on, thus not shown accurately in one data flow chart as in Sequence Diagram [SRC]. Therefore, to demonstrate the purpose of classes, Activity Diagram is in use.
+ To demonstrate the structure graphically, a Class Diagram and a Sequence Diagram is shown for each phase, that is represented by each class. Class Diagram is chosen as a common representation for an overview within and between classes \cite{seclass}. A Sequence Diagram is also chosen against Activity Diagram since it shows the recursive calls in different iterations in depth.
 
 \subsection{Phase I Scan}
 
@@ -45,11 +45,11 @@ Details will be discussed in sections below for each phase. To demonstrate the s
 	\item{\texttt{AllClassMap}: A partitioned map that contains class values as keys that are connected to their relevant sub-data (list of instances) as values.}
 \end{itemize}
   
-\textit{Reason: } Data taken from input sources need separate containers for different purpose: \texttt{AllTuples} is required to provide access to all original data. On a different note, \texttt{AllClassMap} is required to get the class-based data partition since the key efficiency of this algorithm is to `divide and conquer' on data partitions guided by class tag [SRC]
+\textit{Reason: } Data taken from input sources need separate containers for different purpose: \texttt{AllTuples} is required to provide access to all original data. On a different note, \texttt{AllClassMap} is required to get the class-based data partition.
 
 \item[Data type: ] \texttt{LinkedList} (for tuples), \texttt{LinkedHashMap} (for class-based data partitioned map)
 
-\textit{Reason: } A \texttt{List} - without specified inner data type - is used for tuples since it needs multiple types of data (e.g. float number, string class value, integer ordered number). In this case, \texttt{LinkedList} is used instead of \texttt{ArrayList} for two reasons: Firsrly, its ability to add and remove first and last elements more quickly than the alternative [SRC]. It is necessary to retrieve class value in each tuple at faster rate as class value is the last element in the tuple. Secondly, \texttt{LinkedList} or any type of \texttt{Linked}-collection type means its  A set of tuples thus casts as \texttt{LinkedList<LinkedList>}.
+\textit{Reason: } A \texttt{List} - without specified inner data type - is used for tuples since it needs multiple types of data (e.g. float number, string class value, integer ordered number). In this case, \texttt{LinkedList} is used instead of \texttt{ArrayList} for two reasons: Firsrly, its ability to add and remove first and last elements more quickly than the alternative. It is necessary to retrieve class value in each tuple at faster rate as class value is the last element in the tuple. Secondly, \texttt{LinkedList} or any type of \texttt{Linked}-collection type means its  A set of tuples thus casts as \texttt{LinkedList<LinkedList>}.
 
 Similarly, a \texttt{LinkedHashMap} is used for faster retrieval rate an. A \texttt{HashMap} is used for storing partitioned sub-data from class values since each partition of data needs to be recorded with its unique class value. It has String class as key and \texttt{LinkedList<LinkedList>} List of all tuples as values. 
 
@@ -57,12 +57,12 @@ Similarly, a \texttt{LinkedHashMap} is used for faster retrieval rate an. A \tex
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=5in]{figures/class_scanners}
-    \caption[Class Diagram for class Scanners]{A Class Diagram for class Scanners}
+    \includegraphics[width=4in]{figures/class_scanners}
+    \caption[Class Diagram for class Scanners]{Class Diagram for class Scanners}
     \label{fig:figure4_2}
 \end{figure}
 
-Its class diagram is in Figure 4.1, showing two features/methods:
+Its class diagram is in Figure 4.2, showing two features/methods:
 \begin{itemize}
 	\item{scanData()} \\
 	This method initialises two scanners, one to scan line-by-line data from csv file (i.e. tuples) and one to scan in-line elements (i.e. attributes).
@@ -75,7 +75,7 @@ Its class diagram is in Figure 4.1, showing two features/methods:
 
 \item[Sequence diagram: ] 
 
-Below is the sequence diagram for $Analyser$, showing the data flow from $Scanner \rightarrow Analyser$:
+Figure 4.3 shows the sequence diagram for $Scanners$, showing the data flow from $Scanner \rightarrow Analyser$:
 
 \begin{figure}[h]
     \centering
@@ -131,7 +131,7 @@ Similarly, For \texttt{attributeTupleMap}, a \texttt{LinkedHashMap} with \texttt
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=5in]{figures/class_analyser}
+    \includegraphics[width=4.5in, height=4in]{figures/class_analyser}
     \caption[Class Diagram for class Analyser]{Class Diagram for class Analyser}
     \label{fig:figure4_3}
 \end{figure}
@@ -263,7 +263,7 @@ Its class diagram is in Figure 4.4, which presents five features/methods:
 
 \item[Sequence diagram: ] 
 
-Below is a Sequence diagram to present data flow from $Analyser \rightarrow Generator \rightarrow Monitor$:
+Figure 4.5 shows a Sequence diagram for $Generator$ to present data flow from $Analyser \rightarrow Generator \rightarrow Monitor$:
 
 \begin{figure}[h]
     \centering
@@ -302,13 +302,13 @@ Below is a Sequence diagram to present data flow from $Analyser \rightarrow Gene
   
 \textit{Reason: } As $SubAnalyser$ calls $Analyser$ method, new sub-ranges can be found from the combined range through \texttt{maxSum()} analysis. Therefore, one or multiple ranges could be returned from $Analyser$ once the methods finished. This set of range is then grabbed by $SubAnalyser$ and returned to $Generator$, indicating that there is a possible pair tested to be applicable for the next iteration. By $Analyser$ returning $Null$ when threshold requirements failed to be met, $SubAnalyser$ will also return $Null$ to $Generator$ which signifies $Generator$ to seek for new pairing.
 
-\item[Data type: ] As discussed, using nested \texttt{LinkedList}, attribute number and range can be extended unrestrictedly. For the updated mutual tuple set, a \texttt{LinkedHashSet}. \texttt{LinkedHashSet} is used as it avoids duplication while keeping elements in order [SRC]. 
+\item[Data type: ] As discussed, using nested \texttt{LinkedList}, attribute number and range can be extended unrestrictedly. For the updated mutual tuple set, a \texttt{LinkedHashSet}. \texttt{LinkedHashSet} is used as it avoids duplication while keeping elements in order. 
 
 \item[Class diagram: ] 
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=5.5in, height=4.5in]{figures/class_subanalyser}
+    \includegraphics[width=4in, height=2.5in]{figures/class_subanalyser}
     \caption[Class Diagram for class SubAnalyser]{Class Diagram for class SubAnalyser}
     \label{fig:figure4_5}
 \end{figure}
@@ -413,11 +413,11 @@ In this section, the software engineering aspects of the project is discussed: o
 
 \subsection{Planning}
 
-The most common way to do project planning is to rely on Gantt Chat [SRC]. Gantt chart provides an overview for project development process and monitors the progress based on specified deadlines for different tasks [SRC].
+The most common way to do project planning is to rely on Gantt Chat]. Gantt chart provides an overview for project development process and monitors the progress based on specified deadlines for different tasks.
 
-However, since this project is more on exploring the algoritm itself, implemetation planning is not fixed from the beginning. Several structural changes were made along the process once there was a possible improvement to the algorithm, hence programming tasks are more dynamic than tradtional software development. It was decided that Gantt chart would not show enough details for required tasks, and as a replacement a Kanban board was used.
+However, there are algorithmic as well as implementing changes that are considered frequently during the process. It was decided that Gantt chart would not be dynamic enough to accommodate changes, and as a replacement a Kanban board was used.
 
-Kanban gives more focus to the tasks while still keeping track of the deadlines [SRC]. Trello, an online Kandan tool, is used in this project for its cross-platform mobility (as a website) and the ability to sort and archive tasks if necessary [SRC].
+Kanban gives more focus to the tasks while still keeping track of the deadlines. Trello, an online Kandan tool, is used in this project for its cross-platform mobility (as a website) and the ability to sort and archive tasks if necessary.
 
 A screenshot of the Trello board for this project is as below:
 
@@ -428,7 +428,6 @@ A screenshot of the Trello board for this project is as below:
     \label{fig:figure4_7}
 \end{figure}
 
-A similar tool - Google Drive - is also used. All planning tools are Cloud-based services so that planner can be accessed remotely on different OS. 
 
 \subsection{Technical Platforms}
 
@@ -455,7 +454,7 @@ For this project, there are several softwares utilised:
 	Weka is used for testing part of this project by cross-validating this project outcome against that of top ten algorithm \cite{Wu2008}. 
 		
 	\item{LaTex}
-	Include BiBTex generator please
+	LaTex is used for constructing this report. Its class template can be found at \cite{sphdtemplate}.
 
 \end{itemize}
 
