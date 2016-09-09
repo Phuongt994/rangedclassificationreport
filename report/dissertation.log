@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.8.10)  8 SEP 2016 06:30
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.8.10)  9 SEP 2016 07:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -581,23 +581,23 @@ Package cleveref Info: always capitalise cross-reference names on input line 74
 (./dissertation.aux)
 \openout1 = `dissertation.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Info: Redefining \microtypecontext on input line 15.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Info: Redefining \microtypecontext on input line 14.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
@@ -681,7 +681,7 @@ e
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 \AtBeginShipoutBox=\box39
-Package hyperref Info: Link coloring OFF on input line 15.
+Package hyperref Info: Link coloring OFF on input line 14.
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 
@@ -690,9 +690,9 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count142
 )
-LaTeX Info: Redefining \ref on input line 15.
-LaTeX Info: Redefining \pageref on input line 15.
-LaTeX Info: Redefining \nameref on input line 15.
+LaTeX Info: Redefining \ref on input line 14.
+LaTeX Info: Redefining \pageref on input line 14.
+LaTeX Info: Redefining \nameref on input line 14.
 
 (./dissertation.out) (./dissertation.out)
 \@outlinefile=\write3
@@ -701,63 +701,58 @@ LaTeX Info: Redefining \nameref on input line 15.
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 19--19
-
- []
-
-[2
-
-] (./acknowledgments.tex [3
-
-]) (./abstract.tex [4
-
-]) (./dissertation.toc
-LaTeX Font Info:    Try loading font information for U+msa on input line 1.
-
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+LaTeX Font Info:    Try loading font information for U+msa on input line 18.
+ (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 1.
+LaTeX Font Info:    Try loading font information for U+msb on input line 18.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
-) [5
+) [2
+
+] [3]
+(./acknowledgments.tex [4
+
+]) (./abstract.tex [5
+
+]) (./dissertation.toc [6
 
 
 ])
 \tf@toc=\write4
 \openout4 = `dissertation.toc'.
 
- [6]
-(./dissertation.lof)
+
+[7] (./dissertation.lof)
 \tf@lof=\write5
 \openout5 = `dissertation.lof'.
 
- [7
+ [8
 
 
 ] (./dissertation.lot)
 \tf@lot=\write6
 \openout6 = `dissertation.lot'.
 
- [8
+ [9
 
 
 ] (./dissertation.loa)
 \tf@loa=\write7
 \openout7 = `dissertation.loa'.
 
- [9
+
+[10
 
 
-]
-(./sections/section1.tex
+] (./sections/section1.tex
 Section 1.
 [1
 
@@ -776,7 +771,7 @@ T1/cmr/m/n/10.95 (-20) , the al-go-rithm at-temps to seek for clas-si-fi-ca-tio
 n $\OML/cmm/m/it/10.95 r[]; r[]; r[]::r[] \OMS/cmsy/m/n/10.95 !
  []
 
-<figures/DrShaoAlgorithm1.png, id=307, 742.775pt x 765.86125pt>
+<figures/DrShaoAlgorithm1.png, id=326, 742.775pt x 765.86125pt>
 File: figures/DrShaoAlgorithm1.png Graphic file (type png)
 
 <use figures/DrShaoAlgorithm1.png>
@@ -788,7 +783,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 132--135
 
  []
 
-[10] <figures/DrShaoAlgorithm2.png, id=335, 727.71875pt x 692.5875pt>
+[10] <figures/DrShaoAlgorithm2.png, id=354, 727.71875pt x 692.5875pt>
 File: figures/DrShaoAlgorithm2.png Graphic file (type png)
 
 <use figures/DrShaoAlgorithm2.png>
@@ -854,138 +849,200 @@ Underfull \hbox (badness 10000) in paragraph at lines 44--47
 
 [16]) (./sections/section4.tex [17]
 Section 4.
-(./tables/table6.tex) [18
-
-]
-<figures/activity_overview.png, id=370, 597.6729pt x 695.9601pt>
+(./tables/table6.tex)
+<figures/activity_overview.png, id=385, 597.6729pt x 695.9601pt>
 File: figures/activity_overview.png Graphic file (type png)
 
 <use figures/activity_overview.png>
-Package pdftex.def Info: figures/activity_overview.png used on input line 17.
-(pdftex.def)             Requested size: 469.75499pt x 547.00952pt.
+Package pdftex.def Info: figures/activity_overview.png used on input line 16.
+(pdftex.def)             Requested size: 469.75792pt x 491.4484pt.
 
-Overfull \hbox (16.7871pt too wide) in paragraph at lines 17--18
+Overfull \hbox (16.79002pt too wide) in paragraph at lines 16--17
  [][] 
  []
 
-[19 <./figures/activity_overview.png (PNG copy)>]
+[18
+
+] [19 <./figures/activity_overview.png (PNG copy)>]
 Package microtype Info: Loading generic settings for font family
 (microtype)             `cmtt' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
  [20]
-<figures/class_scanners.png, id=380, 260.0149pt x 80.12543pt>
+<figures/class_scanners.png, id=399, 260.0149pt x 80.12543pt>
 File: figures/class_scanners.png Graphic file (type png)
 
 <use figures/class_scanners.png>
-Package pdftex.def Info: figures/class_scanners.png used on input line 72.
+Package pdftex.def Info: figures/class_scanners.png used on input line 60.
 (pdftex.def)             Requested size: 361.34999pt x 111.35812pt.
- [21] [22 <./figures/class_scanners.png (PNG copy)>]
-Overfull \hbox (60.91779pt too wide) in paragraph at lines 106--107
+ [21 <./figures/class_scanners.png (PNG copy)>] <figures/sequence_scanners.png,
+ id=405, 246.9225pt x 357.335pt>
+File: figures/sequence_scanners.png Graphic file (type png)
+
+<use figures/sequence_scanners.png>
+Package pdftex.def Info: figures/sequence_scanners.png used on input line 82.
+(pdftex.def)             Requested size: 216.80641pt x 216.81265pt.
+ [22 <./figures/sequence_scanners.png>]
+Overfull \hbox (60.91779pt too wide) in paragraph at lines 112--113
 []\T1/cmr/m/n/10.95 (-20) A list of sub-ranges in float val-ues that passed the
  support-confidence check (\T1/cmtt/m/n/10.95 attributeRangeList\T1/cmr/m/n/10.
 95 (-20) ).
  []
 
 [23]
-Overfull \hbox (22.15942pt too wide) in paragraph at lines 122--123
+Overfull \hbox (22.15942pt too wide) in paragraph at lines 128--129
 []\T1/cmr/m/n/10.95 (-20) Similarly, For \T1/cmtt/m/n/10.95 attributeTupleMap\T
 1/cmr/m/n/10.95 (-20) , a \T1/cmtt/m/n/10.95 LinkedHashMap \T1/cmr/m/n/10.95 (-
 20) with \T1/cmtt/m/n/10.95 LinkedList<LinkedList<Float[]>>
  []
 
 
-Overfull \hbox (56.72821pt too wide) in paragraph at lines 122--123
+Overfull \hbox (56.72821pt too wide) in paragraph at lines 128--129
 \T1/cmr/m/n/10.95 (-20) as keys and \T1/cmtt/m/n/10.95 LinkedList<LinkedList> \
 T1/cmr/m/n/10.95 (-20) as val-ues. Keys in \T1/cmtt/m/n/10.95 attributeTupleMap
  \T1/cmr/m/n/10.95 (-20) are \T1/cmtt/m/n/10.95 attributeRangeMap
  []
 
-<figures/class_analyser.png, id=394, 328.8285pt x 388.8126pt>
+<figures/class_analyser.png, id=416, 328.8285pt x 388.8126pt>
 File: figures/class_analyser.png Graphic file (type png)
 
 <use figures/class_analyser.png>
-Package pdftex.def Info: figures/class_analyser.png used on input line 128.
+Package pdftex.def Info: figures/class_analyser.png used on input line 134.
 (pdftex.def)             Requested size: 361.34999pt x 427.28581pt.
- [24] [25 <./figures/class_analyser.png (PNG copy)>] [26] [27] [28] [29]
-<figures/class_generator.png, id=420, 413.3844pt x 144.54pt>
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[24] [25 <./figures/class_analyser.png (PNG copy)>] [26] [27]
+<figures/sequence_analyser.png, id=434, 551.05875pt x 662.475pt>
+File: figures/sequence_analyser.png Graphic file (type png)
+
+<use figures/sequence_analyser.png>
+Package pdftex.def Info: figures/sequence_analyser.png used on input line 195.
+(pdftex.def)             Requested size: 325.22273pt x 361.35004pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[28] [29 <./figures/sequence_analyser.png>]
+<figures/class_generator.png, id=445, 413.3844pt x 144.54pt>
 File: figures/class_generator.png Graphic file (type png)
 
 <use figures/class_generator.png>
-Package pdftex.def Info: figures/class_generator.png used on input line 223.
+Package pdftex.def Info: figures/class_generator.png used on input line 235.
 (pdftex.def)             Requested size: 361.34999pt x 126.34866pt.
- [30 <./figures/class_generator.png (PNG copy)>]
-Overfull \hbox (7.51794pt too wide) in paragraph at lines 245--246
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[30]
+Overfull \hbox (7.51794pt too wide) in paragraph at lines 257--258
 \T1/cmr/m/n/10.95 (-20) and \T1/cmtt/m/n/10.95 newAttributeTupleMap \T1/cmr/m/n
 /10.95 (-20) will re-place \T1/cmtt/m/n/10.95 attributeRangeMap \T1/cmr/m/n/10.
 95 (-20) and \T1/cmtt/m/n/10.95 attributeTupleMap
  []
 
+[31 <./figures/class_generator.png (PNG copy)>]
+<figures/sequence_generator.png, id=454, 483.8075pt x 871.255pt>
+File: figures/sequence_generator.png Graphic file (type png)
 
-Overfull \hbox (1.74794pt too wide) in paragraph at lines 265--266
+<use figures/sequence_generator.png>
+Package pdftex.def Info: figures/sequence_generator.png used on input line 270.
+
+(pdftex.def)             Requested size: 325.22716pt x 289.07047pt.
+ [32 <./figures/sequence_generator.png>]
+Overfull \hbox (1.74794pt too wide) in paragraph at lines 285--286
 []\T1/cmr/m/n/10.95 (-20) To re-call range analysing method in par-ent class $\
 OML/cmm/m/it/10.95 Analyser$ \T1/cmr/m/n/10.95 (-20) in-clud-ing \T1/cmtt/m/n/1
 0.95 convertToBinary\T1/cmr/m/n/10.95 (-20) ,
  []
 
-[31]
-Overfull \hbox (1.32405pt too wide) in paragraph at lines 285--286
+[33]
+Overfull \hbox (1.32405pt too wide) in paragraph at lines 305--306
 \T1/cmr/m/n/10.95 (-20) tended un-re-strict-edly. For the up-dated mu-tual tu-p
 le set, a \T1/cmtt/m/n/10.95 LinkedHashSet\T1/cmr/m/n/10.95 (-20) . \T1/cmtt/m/
 n/10.95 LinkedHashSet
  []
 
-[32] <figures/class_subanalyser.png, id=434, 487.8225pt x 185.0112pt>
+<figures/class_subanalyser.png, id=465, 487.8225pt x 185.0112pt>
 File: figures/class_subanalyser.png Graphic file (type png)
 
 <use figures/class_subanalyser.png>
-Package pdftex.def Info: figures/class_subanalyser.png used on input line 291.
-(pdftex.def)             Requested size: 397.48499pt x 150.75032pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 299--300
-
+Package pdftex.def Info: figures/class_subanalyser.png used on input line 311.
+(pdftex.def)             Requested size: 397.48622pt x 325.23112pt.
+ [34 <./figures/class_subanalyser.png (PNG copy)>]
+Overfull \hbox (7.87787pt too wide) in paragraph at lines 322--324
+\T1/cmtt/m/n/10.95 checkSupportConfidence() \T1/cmr/m/n/10.95 (-20) and \T1/cmt
+t/m/n/10.95 convertPositionToRange() \T1/cmr/m/n/10.95 (-20) from $\OML/cmm/m/i
+t/10.95 Analyser$ \T1/cmr/m/n/10.95 (-20) through
  []
 
+<figures/sequence_subanalyser.png, id=470, 696.6025pt x 662.475pt>
+File: figures/sequence_subanalyser.png Graphic file (type png)
 
-Underfull \hbox (badness 10000) in paragraph at lines 302--303
+<use figures/sequence_subanalyser.png>
+Package pdftex.def Info: figures/sequence_subanalyser.png used on input line 34
+2.
+(pdftex.def)             Requested size: 361.35315pt x 325.21199pt.
+ [35] [36 <./figures/sequence_subanalyser.png>] <figures/class_monitor.png, id=
+480, 417.7206pt x 114.1866pt>
+File: figures/class_monitor.png Graphic file (type png)
 
+<use figures/class_monitor.png>
+Package pdftex.def Info: figures/class_monitor.png used on input line 380.
+(pdftex.def)             Requested size: 361.34999pt x 98.77701pt.
+ [37 <./figures/class_monitor.png (PNG copy)>]
+<figures/sequence_monitor.png, id=485, 240.9pt x 309.155pt>
+File: figures/sequence_monitor.png Graphic file (type png)
+
+<use figures/sequence_monitor.png>
+Package pdftex.def Info: figures/sequence_monitor.png used on input line 403.
+(pdftex.def)             Requested size: 216.81534pt x 216.81741pt.
+
+Overfull \hbox (5.33272pt too wide) in paragraph at lines 400--407
+[]\T1/cmr/m/n/10.95 (-20) A Se-quence di-a-gram is used to present the data flo
+w be-tween $\OML/cmm/m/it/10.95 Generator \OMS/cmsy/m/n/10.95 !
  []
 
+[38 <./figures/sequence_monitor.png>]
+<figures/trello.png, id=491, 1133.23375pt x 499.8675pt>
+File: figures/trello.png Graphic file (type png)
 
-Underfull \hbox (badness 10000) in paragraph at lines 305--306
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 310--311
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 314--315
-
- []
-
-) (./sections/section5.tex [33 <./figures/class_subanalyser.png (PNG copy)>]
-[34]
+<use figures/trello.png>
+Package pdftex.def Info: figures/trello.png used on input line 426.
+(pdftex.def)             Requested size: 397.48499pt x 175.32997pt.
+ [39 <./figures/trello.png>]) (./sections/section5.tex
+[40]
 Section 5.
-) (./sections/section6.tex [35
+[41
 
-]
+]) (./sections/section6.tex [42]
 Section 6.
-) (./sections/section7.tex [36
+) (./sections/section7.tex [43
 
 ]
 Section 7.
-) (./sections/section8.tex [37
+) (./sections/section8.tex [44
 
 ]
 Section 8.
-) [38
+[45
 
-] (./dissertation.bbl)
+]) [46] (./dissertation.bbl
+Underfull \hbox (badness 10000) in paragraph at lines 55--58
+[]\T1/cmr/m/n/10.95 (+20) Project Repos-i-tory.  Range-clas-si-fi-ca-tion.  []$
+\T1/cmtt/m/n/10.95 https : / / github . com / Phuongt994 /
+ []
+
+
+Underfull \hbox (badness 1502) in paragraph at lines 60--63
+[]\T1/cmr/m/n/10.95 (+20) Report Repos-i-tory.  Range-clas-si-fi-ca-tion-re-por
+t.  []$\T1/cmtt/m/n/10.95 https : / / github . com / Phuongt994 /
+ []
+
+)
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 37.
- [39
+ [47
 
 
 ]
@@ -994,14 +1051,14 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 37.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 37.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 37.
 Package rerunfilecheck Info: File `dissertation.out' has not changed.
-(rerunfilecheck)             Checksum: 7303FF41AA8437D87164AB42ACE27A10;2393.
+(rerunfilecheck)             Checksum: 14E2E1E7431BC44FCA3116AE3405E102;2395.
  ) 
 Here is how much of TeX's memory you used:
- 14355 strings out of 493029
- 228790 string characters out of 6136234
- 391374 words of memory out of 5000000
- 17358 multiletter control sequences out of 15000+600000
- 26728 words of font info for 126 fonts, out of 8000000 for 9000
+ 14449 strings out of 493029
+ 230667 string characters out of 6136234
+ 391378 words of memory out of 5000000
+ 17411 multiletter control sequences out of 15000+600000
+ 26949 words of font info for 129 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  60i,12n,94p,1210b,469s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texliv
@@ -1022,10 +1079,10 @@ fb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf
 /fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/
 cm-super/sfti1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1200.pf
 b></usr/share/texmf/fonts/type1/public/cm-super/sftt1000.pfb>
-Output written on dissertation.pdf (48 pages, 1145434 bytes).
+Output written on dissertation.pdf (57 pages, 1375606 bytes).
 PDF statistics:
- 559 PDF objects out of 1000 (max. 8388607)
- 477 compressed objects within 5 object streams
- 112 named destinations out of 1000 (max. 500000)
- 20828 words of extra memory for PDF output out of 24883 (max. 10000000)
+ 669 PDF objects out of 1000 (max. 8388607)
+ 565 compressed objects within 6 object streams
+ 140 named destinations out of 1000 (max. 500000)
+ 20863 words of extra memory for PDF output out of 24883 (max. 10000000)
 

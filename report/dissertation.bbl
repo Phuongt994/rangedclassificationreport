@@ -1,8 +1,64 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
-\bibitem{paper1}
-Jean-Daniel Boissonnat.
-\newblock Geometric structures for three-dimensional shape representation.
-\newblock {\em ACM Transactions on Graphics}, 3(4):266--286, October 1984.
+\bibitem{Wu2008}
+X.~Wu et~al.
+\newblock Top 10 algorithms in data mining.
+\newblock {\em Knowledge and Information Systems}, 14(1):1--37, 2008.
+
+\bibitem{eclipse}
+Eclipse Foundation.
+\newblock {Eclipse Neon}.
+\newblock \url{https://eclipse.org/}.
+
+\bibitem{ucirepo}
+A.~Frank and A.~Asuncion.
+\newblock {UCI Machine Learning Repository}.
+\newblock \url{http://archive.ics.uci.edu/ml}.
+
+\bibitem{github}
+GitHub.
+\newblock {How People Build Software - GitHub}.
+\newblock \url{https://github.com/}.
+
+\bibitem{intellij}
+JetBrains.
+\newblock {IntelliJ IDEA the Java IDE}.
+\newblock \url{https://www.jetbrains.com/idea/}.
+
+\bibitem{sequenceplugin}
+Kentaur.
+\newblock {JetBrains Plugin Repository: SequencePlugin}.
+\newblock \url{https://plugins.jetbrains.com/plugin/22?pr=}.
+
+\bibitem{Kohavi95astudy}
+Ron Kohavi.
+\newblock {A Study of Cross-Validation and Bootstrap for Accuracy Estimation
+  and Model Selection}.
+\newblock pages 1137--1143. Morgan Kaufmann, 1995.
+
+\bibitem{objectaid}
+ObjectAid LLC.
+\newblock {ObjectAid UML Explorer}.
+\newblock \url{http://www.objectaid.com/}.
+
+\bibitem{Hall:2009:WDM:1656274.1656278}
+G.~Holmes B. Pfahringer P.~Reutemann M.~Hall, E.~Frank and I.~H. Witten.
+\newblock {The WEKA Data Mining Software: An Update}.
+\newblock {\em SIGKDD Explor. Newsl.}, 11(1):10--18, November 2009.
+
+\bibitem{visualparadigm}
+Visual Paradigm.
+\newblock {Visual Paradigm Cardiff University License}.
+\newblock \url{https://www.visual-paradigm.com/}.
+
+\bibitem{githubproject}
+Project Repository.
+\newblock Rangeclassification.
+\newblock \url{https://github.com/Phuongt994/rangedclassification}.
+
+\bibitem{githubreport}
+Report Repository.
+\newblock Rangeclassificationreport.
+\newblock \url{https://github.com/Phuongt994/rangedclassificationreport}.
 
 \end{thebibliography}

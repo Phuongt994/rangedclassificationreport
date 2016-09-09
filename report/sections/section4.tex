@@ -10,11 +10,10 @@ The implementation process can now be divided into five Phases instead of two fr
 
 \input{tables/table6}
 
-From Table 4.1, a detailed structure for the programme can be presented visually in an Activity Diagram below:
-
-\begin{figure}[!htbp]
+From Table 4.1, a detailed structure for the programme can be presented in an Activity Diagram below:
+\begin{figure}[h]
     \centering
-    \includegraphics[width=6.5in]{figures/activity_overview}
+    \includegraphics[width=6.5in, height=6.8in]{figures/activity_overview}
     \caption[Class overview: Activity Diagram]{Class overview: Activity Diagram}
     \label{fig:figure4_1}
 \end{figure}
@@ -56,6 +55,13 @@ Similarly, a \texttt{LinkedHashMap} is used for faster retrieval rate an. A \tex
 
 \item[Class diagram: ] 
 
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=5in]{figures/class_scanners}
+    \caption[Class Diagram for class Scanners]{A Class Diagram for class Scanners}
+    \label{fig:figure4_2}
+\end{figure}
+
 Its class diagram is in Figure 4.1, showing two features/methods:
 \begin{itemize}
 	\item{scanData()} \\
@@ -67,16 +73,16 @@ Its class diagram is in Figure 4.1, showing two features/methods:
 	
 \end{itemize}
 
-\begin{figure}[!htbp]
+\item[Sequence diagram: ] 
+
+Below is the sequence diagram for $Analyser$, showing the data flow from $Scanner \rightarrow Analyser$:
+
+\begin{figure}[h]
     \centering
-    \includegraphics[width=5in]{figures/class_scanners}
-    \caption[A Class Diagram for Phase I Scanners]{A Class Diagram for Phase I Scanners}
-    \label{fig:figure4_2}
+    \includegraphics[width=3in, height=3in]{figures/sequence_scanners}
+    \caption[Sequence Diagram for class Scanners]{Sequence Diagram for class Scanners}
+    \label{fig:figure4_22}
 \end{figure}
-
-\item[Activity diagram: ] 
-
-FIG PLS
 
 \end{description}
 
@@ -123,10 +129,10 @@ Similarly, For \texttt{attributeTupleMap}, a \texttt{LinkedHashMap} with \texttt
 
 \item[Class diagram: ] 
 
-\begin{figure}[!htbp]
+\begin{figure}[h]
     \centering
     \includegraphics[width=5in]{figures/class_analyser}
-    \caption[Class Diagram for Phase II Analyse]{Class Diagram for Phase II Analyse}
+    \caption[Class Diagram for class Analyser]{Class Diagram for class Analyser}
     \label{fig:figure4_3}
 \end{figure}
 
@@ -181,10 +187,16 @@ Class $Analyser$ contains seven features/methods:
 	
 \end{itemize}
 
+\item[Sequence diagram: ] 
+Below is a Sequence diagram to present data flow from $Scanners \rightarrow Analyser \rightarrow Generator$:
 
-\item[Activity diagram: ] 
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=4.5in, height=5in]{figures/sequence_analyser}
+    \caption[Sequence Diagram for class Analyser]{Sequence Diagram for class Analyser}
+    \label{fig:figure4_32}
+\end{figure}
 
-FIG PLS
 \end{description}
 
 \subsection{Phase III Generate}
@@ -218,10 +230,10 @@ Moreover, the \texttt{LinkedList} for attribute number and float range helps imp
 
 \item[Class diagram: ] 
 
-\begin{figure}[!htbp]
+\begin{figure}[h]
     \centering
     \includegraphics[width=5in]{figures/class_generator}
-    \caption[Class Diagram for Phase III Generate]{Class Diagram for Phase III Generate}
+    \caption[Class Diagram for class Generator]{Class Diagram for class Generator}
     \label{fig:figure4_4}
 \end{figure}
 
@@ -249,9 +261,17 @@ Its class diagram is in Figure 4.4, which presents five features/methods:
 	
 \end{itemize}
 
-\item[Activity diagram: ] 
+\item[Sequence diagram: ] 
 
-FIG PLS
+Below is a Sequence diagram to present data flow from $Analyser \rightarrow Generator \rightarrow Monitor$:
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=4.5in, height=4in]{figures/sequence_generator}
+    \caption[Sequence Diagram for class Generator]{Sequence Diagram for class Generator}
+    \label{fig:figure4_42}
+\end{figure}
+
 \end{description}
 
 \subsection{Phase IV Sub-Analyse}
@@ -286,10 +306,10 @@ FIG PLS
 
 \item[Class diagram: ] 
 
-\begin{figure}[!htbp]
+\begin{figure}[h]
     \centering
-    \includegraphics[width=5.5in]{figures/class_subanalyser}
-    \caption[Class Diagram for Phase IV Sub-Analyse]{Class Diagram for Phase IV Sub-Analyse}
+    \includegraphics[width=5.5in, height=4.5in]{figures/class_subanalyser}
+    \caption[Class Diagram for class SubAnalyser]{Class Diagram for class SubAnalyser}
     \label{fig:figure4_5}
 \end{figure}
 
@@ -300,32 +320,148 @@ Its class diagram is in Figure 4.5, which presents five features/methods:
  	This method seeks to construct 1) a set that contains all tuples that is at least covered by one range and 2) a mutual set of tuples where only tuples that are covered under both ranges are appended. Both sets are then passed onto next method \texttt{checkDensity()}.
 	
 	\item{checkDensity()} \\
-	This method uses the two tuple sets from \texttt{stictAdjust()} method to perform density check on the combined range. 
-	WE ARE HERE
+	This method uses the two tuple sets from \texttt{strictAdjust()} method to perform density check on the combined range. If the combind range satisfies density requirement, it is passed onto the same range-analysis as first iteration: \texttt{convertToBinary()}, \texttt{maxSum()}, \texttt{checkSupportConfidence()} and \texttt{convertPositionToRange()} from $Analyser$ through inheritence calls. In this case density is checked first then the support and confidence is checked afterwards to reuse the code in $Analyser$. 
 	
 	\item{getNewCombinedRange()} \\
-
-	
-
+	This method is a \texttt{get()} method to retrieve the new combined range for $Generator$ after this class finishes.
 	
 	\item{getNewCombinedKey()} \\
-
-	 
+	This method is a \texttt{get()} method to retrieve the new combined key for $Generator$ after this class finishes.
 	
 	\item{getNewMutualTupleList()} \\
+		This method is a \texttt{get()} method to retrieve the new mutual tuple set obtained in \texttt{strictAdjust()} for $Generator$ after this class finishes.
 
-	
 \end{itemize}
+
+\item[Sequence diagram: ] 
+
+Below is a sequence diagram used to present a data flow between $Generator \rightarrow SubAnalyser \rightarrow Analyser$:
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=5in, height=4.5in]{figures/sequence_subanalyser}
+    \caption[Sequence Diagram for class SubAnalyser]{Sequence Diagram for class SubAnalyser}
+    \label{fig:figure4_52}
+\end{figure}
 
 \end{description}
 
+
 \subsection{Phase V Monitor}
+\begin{description}
+
+\item[Aim: ] As the final phase, this class wraps up the programme with the following aims:
+
+\begin{itemize}
+	\item{To by reformating the remaining associated ranges into readable classification rules.} 
+	\item{To evaluate the accuracy and performance of the rules.} 
+	\item{To output the evaluation as well as the rules into a text file for the record.} 
+\end{itemize}
+
+\item[Input: ] This class input is the final version of range and tuple map from $Generator$, as well as the original dataset to retrieve range values:
+\begin{itemize}
+	\item{\texttt{allTuple}:  all original instances in dataset.} 
+	\item{\texttt{attributeRangeMap}: with combined attribute number as key and (one or more) associated ranges (classification rules) as value.}
+	\item{\texttt{attributeTupleMap}: with each associated range as key and its covered tuple set as value.}
+\end{itemize}
+
+\textit{Reason: } \texttt{allTuple} is needed to retrieve the float ranges and calculate the rule accuracy. \texttt{attributeRangeMap} and \texttt{attributeTupleMap} are the containers of the associated ranges i.e. the classification rules.
+
+\item[Output: ] $Monitor$ produces two outputs: the evaluation of rules (including runtime and accuracy) as \texttt{String} and the rules itself to the terminal and text \texttt{.txt} file as record. 
+  
+\textit{Reason: } Initially, class $Monitor$ did not exist as the information is produced directly to the Terminal when the programme runs. However, for readability and back-tracking functionality, a text log is decided to be kept alongside Terminal output, hence $Monitor$.  
+
+\item[Data type: ] All information is transformed into \texttt{String} as it is appended to the text \texttt{.txt} file. 
+
+\item[Class diagram: ] 
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=5in]{figures/class_monitor}
+    \caption[Class Diagram for class Monitor]{Class Diagram for class Monitor}
+    \label{fig:figure4_6}
+\end{figure}
+
+Its class diagram is in Figure 4.6, which presents five features/methods:
+
+\begin{itemize}
+	\item{evaluateRule()} \\
+	This method is responsible for re-formating the ranges and calculate the rule performance and accuracy. For re-formating, due to data structure requirements the ranges found are not in correct order e.g. $r = [a,b]$ where $a > b$, so this method swaps the ranges into correct band to get $r = [b,a]$.
+	 
+	For rule evaluation, initially it calculated the accuracy by applying the rule onto the original dataset and observed if its prediction matched the rules. As realised at later stage, this approach was not sufficient in determining the true accuracy of the programme, and training set was considered by spliting the original dataset into half. However, due to time constraint there was no working implementation for this testing part and thus \texttt{evaluateRule} only re-formats rules instead of evaluating them for the time being.
+	 
+	\item{outputRule()} \\
+	This method outputs the rules (that are formatted into \texttt{String}) onto a text file for logging purpose. 
+	
+\end{itemize}
+
+\item[Sequence diagram: ] 
+
+A Sequence diagram is used to present the data flow between $Generator \rightarrow Monitor$:
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=3in, height=3in]{figures/sequence_monitor}
+    \caption[Sequence Diagram for class Monitor]{Sequence Diagram for class Monitor}
+    \label{fig:figure4_62}
+\end{figure}
+
+\end{description}
 
 \section{Development Process}
 
+In this section, the software engineering aspects of the project is discussed: on planning, technical tools utilised and version control for project manangement.
+
 \subsection{Planning}
+
+The most common way to do project planning is to rely on Gantt Chat [SRC]. Gantt chart provides an overview for project development process and monitors the progress based on specified deadlines for different tasks [SRC].
+
+However, since this project is more on exploring the algoritm itself, implemetation planning is not fixed from the beginning. Several structural changes were made along the process once there was a possible improvement to the algorithm, hence programming tasks are more dynamic than tradtional software development. It was decided that Gantt chart would not show enough details for required tasks, and as a replacement a Kanban board was used.
+
+Kanban gives more focus to the tasks while still keeping track of the deadlines [SRC]. Trello, an online Kandan tool, is used in this project for its cross-platform mobility (as a website) and the ability to sort and archive tasks if necessary [SRC].
+
+A screenshot of the Trello board for this project is as below:
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=5.5in]{figures/trello}
+    \caption[Trello Board as Planner]{Trello Board as Planner}
+    \label{fig:figure4_7}
+\end{figure}
+
+A similar tool - Google Drive - is also used. All planning tools are Cloud-based services so that planner can be accessed remotely on different OS. 
+
 \subsection{Technical Platforms}
+
+For this project, there are several softwares utilised:
+
+\begin{itemize}
+	\item{IntelliJ} \cite{intellij}
+	
+	As the first IDE used for this project, it provides a simple and convenient integration with version control from GitHub. Its SequencePlugin \cite{sequenceplugin} provides quick Sequence diagram generator that is used in this report. 
+	
+	\item{Eclipse} \cite{eclipse}
+	
+	In addition to IntelliJ, Eclipse is used in computer labs. While having similar functions as IntelliJ, Eclipse also provides a free Class diagram generator plugin (ObjectAid \cite{objectaid}) for a quick UML generator. However, the Class diagrams used in this report is generated by Visual Paradigm instead, as Visual Paradigm provides more detailed information e.g. type of parameters. 
+		
+	\item{Git - GitHub} \cite{github}
+	GitHub is used for mananging the project and the report itself, which ensures mobility of the programme and detailed records of code change history. GitHub is used as an integration to IntelliJ and Eclipse.
+	
+	GitHub links are available for the latest updates of project \cite{githubproject} and the report in both pdf and laTex format \cite{githubreport}.
+	
+	\item{Visual Paradigm} \cite{visualparadigm}
+	Visual Paradigm is used to generate Class diagram in this project, replacing Eclipse plugin.
+		
+	\item{Weka} \cite{Hall:2009:WDM:1656274.1656278}
+	Weka is used for testing part of this project by cross-validating this project outcome against that of top ten algorithm \cite{Wu2008}. 
+		
+	\item{LaTex}
+	Include BiBTex generator please
+
+\end{itemize}
+
 \subsection{Version Control}
+	Version control for this project is purely done on GitHub. Since half of the project was done remotely, a distributed logging system shall be used, thus GitHub is the optimal choice for its progress tracking as well as revertible contents.
+	
 
 
 

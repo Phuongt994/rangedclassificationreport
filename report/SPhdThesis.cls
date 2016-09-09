@@ -219,7 +219,7 @@
 % B I B L I O G R A P H Y
 
 % Rename bibliography to references.
-\renewcommand{\bibname}{References}
+% \renewcommand{\bibname}{References}
 
 % Define a new command to include the bibliography file and 
 % set the formatting options.
@@ -227,7 +227,7 @@
 {%
 	\clearpage                                 % Fix the page number in TOC.
 	\phantomsection                            % Fix the link in PDF.
-	\addcontentsline{toc}{chapter}{References} % Add the bibliography to TOC.
+	\addcontentsline{toc}{chapter}{Bibliography} % Add the bibliography to TOC.
 	\bibliographystyle{plain}                  % Set the bibliography style.
 	\bibliography{#1}                          % Include the bibliography file.
 }
@@ -496,7 +496,7 @@
 \newcommand{\SgAddTitle}{%
 	\thispagestyle{empty}
 	\begin{center}
-		\vspace*{0.5in}
+		\vspace*{0.3in}
 		\Large{\bf{\SgIntMakeUpperCase{\SgIntTitle}}}
 		\\
 		\vspace{2.5in}
@@ -533,28 +533,54 @@
 
 	\vspace{0.5cm}
 
+	\begin{table}[!htbp]
+	\centering
+		\begin{tabular}{lc}
+			\toprule
+			\textbf{CANDIDATE'S ID NUMBER} & 1571743 \\
+			\textbf{CANDIDATE'S SURNAME} & MS TRAN \\
+			\textbf{CANDIDATE'S FULL FORENAMES} & PHUONG ANH \\
+			\midrule
+		\end{tabular} 
+	\end{table}
+
 	\begin{quote}
-	I hereby declare that this dissertation is my original work and it has been written by me in its entirety. I have duly acknowledged all the sources of information which have been used in the dissertation. \newline
+		
+		This work has not previously been accepted in subtance for any degree and is not concurrently submitted in candidature for any degree.
 
-	This dissertation has also not been submitted for any degree in any university previously.
+		Signed ....................................................... (candidate) Date ...................................
+	
+		\textbf{STATEMENT 1}
+
+		This dissertation is being submitted in partial fulfillment of the requirements for the degree of .................................................
+
+		Signed ....................................................... (candidate) Date ...................................
+
+		\textbf{STATEMENT 2}
+		
+		This dissertation is the result of my own independent work/investigation, except where otherwise stated. Other sources are acknowledged by footnotes giving explicit references. A Bibliography is appended.
+
+		Signed ....................................................... (candidate) Date ...................................
+
+		\textbf{STATEMENT 3}
+
+		I confirm that the electronic copy is identical to the bound copy of the dissertation.
+
+		Signed ....................................................... (candidate) Date ...................................
+
+		\textbf{STATEMENT 4}
+
+		I hereby give consent for my disseration, if accepted, to be available for photocopying and for inter-library loan, and for the title and summary to be made available to outside organisations.
+
+		Signed ....................................................... (candidate) Date ...................................
+
+		\textbf{STATEMENT 5 - BAR ON ACCESS APPROVED}
+		
+		I hereby give consent for my dissertation, if accepted, to be available for photocopying and for inter-library loans \textbf{after expiry of a bar on access approved by the Graduate Development Committee.}
+
+		Signed ....................................................... (candidate) Date ...................................
+
 	\end{quote}
-
-	\ifthenelse{\equal{#1}{nosignimage}}
-	{
-	    \vspace{2.0cm}
-	}
-	{
-		\vspace{0.5cm}
-	}
-
-	\begin{center}
-		\ifthenelse{\equal{#1}{nosignimage}}
-		{}{\includegraphics{#1}\\[-0.5cm]}
-		\rule{5cm}{0.2mm} \\
-		\SgIntAuthor \\
-		\SgIntDeclarationDate
-	\end{center}
-
 	\SgIntClearDoublePage
 }
 
