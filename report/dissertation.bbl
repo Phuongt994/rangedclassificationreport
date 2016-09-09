@@ -1,9 +1,16 @@
 \begin{thebibliography}{10}
 
-\bibitem{tziatzios_shao_loukides_2011}
-A.~Tziatzios, J.~Shao, and G.~Loukides, ``A heuristic method for deriving
-  range-based classification rules,'' {\em 2011 Eighth International Conference
-  on Fuzzy Systems and Knowledge Discovery (FSKD)}, 2011.
+\bibitem{srikant}
+R.~Srikant and R.~Agrawal, ``{In Proceedings of the ACMSIGMOD Conference on
+  Management of Data},'' p.~112, 1996.
+
+\bibitem{kadane}
+J.~Bentley, ``Programming pearls: algorithm design techniques,'' {\em Commun.
+  ACM}, pp.~865--873, 2011.
+
+\bibitem{apriori}
+{\em Data Mining: Practical Machine Learning Tools and Techniques}.
+\newblock Morgan Kaufmann, 2005.
 
 \bibitem{intellij}
 JetBrains, ``{IntelliJ IDEA the Java IDE}.''
