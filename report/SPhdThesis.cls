@@ -538,7 +538,7 @@
 		\begin{tabular}{lc}
 			\toprule
 			\textbf{CANDIDATE'S ID NUMBER} & 1571743 \\
-			\textbf{CANDIDATE'S SURNAME} & MS TRAN \\
+			\textbf{CANDIDATE'S SURNAME} & (Ms) TRAN \\
 			\textbf{CANDIDATE'S FULL FORENAMES} & PHUONG ANH \\
 			\midrule
 		\end{tabular} 
