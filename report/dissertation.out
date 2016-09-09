@@ -10,11 +10,11 @@
 \BOOKMARK [2][-]{subsection.2.3.2}{Original Phase II Generate}{section.2.3}% 10
 \BOOKMARK [0][-]{chapter.3}{Project Algorithm}{}% 11
 \BOOKMARK [1][-]{section.3.1}{Similarities}{chapter.3}% 12
-\BOOKMARK [2][-]{subsection.3.1.1}{Project Phase I \(Analyse\)}{section.3.1}% 13
-\BOOKMARK [2][-]{subsection.3.1.2}{Project Phase II \(Generate\)}{section.3.1}% 14
+\BOOKMARK [2][-]{subsection.3.1.1}{Project Phase I Analyse}{section.3.1}% 13
+\BOOKMARK [2][-]{subsection.3.1.2}{Project Phase II Generate}{section.3.1}% 14
 \BOOKMARK [1][-]{section.3.2}{Differences}{chapter.3}% 15
-\BOOKMARK [2][-]{subsection.3.2.1}{Project Phase I \(Analyse\)}{section.3.2}% 16
-\BOOKMARK [2][-]{subsection.3.2.2}{Project Phase II \(Generate\)}{section.3.2}% 17
+\BOOKMARK [2][-]{subsection.3.2.1}{Project Phase I Analyse}{section.3.2}% 16
+\BOOKMARK [2][-]{subsection.3.2.2}{Project Phase II Generate}{section.3.2}% 17
 \BOOKMARK [1][-]{section.3.3}{Final Construction}{chapter.3}% 18
 \BOOKMARK [0][-]{chapter.4}{Implementation}{}% 19
 \BOOKMARK [1][-]{section.4.1}{Structure}{chapter.4}% 20
@@ -33,7 +33,5 @@
 \BOOKMARK [1][-]{section.5.2}{Accuracy}{chapter.5}% 33
 \BOOKMARK [0][-]{chapter.6}{Conclusion}{}% 34
 \BOOKMARK [0][-]{chapter.7}{Future Work}{}% 35
-\BOOKMARK [1][-]{section.7.1}{Algorithm}{chapter.7}% 36
-\BOOKMARK [1][-]{section.7.2}{Implementation}{chapter.7}% 37
-\BOOKMARK [0][-]{chapter.8}{Reflection}{}% 38
-\BOOKMARK [0][-]{section*.29}{Bibliography}{}% 39
+\BOOKMARK [0][-]{chapter.8}{Reflection}{}% 36
+\BOOKMARK [0][-]{section*.30}{Bibliography}{}% 37

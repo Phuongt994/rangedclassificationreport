@@ -1,56 +1,52 @@
 This is BibTeX, Version 0.99d (TeX Live 2015/Debian)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: dissertation.aux
-The style file: plain.bst
+The style file: ieeetr.bst
 Database file #1: biblio.bib
 Too many commas in name 1 of "M. Hall, E. Frank, G. Holmes, B. Pfahringer, P. Reutemann and I. H. Witten" for entry Hall:2009:WDM:1656274.1656278
-while executing---line 1049 of file plain.bst
+while executing---line 969 of file ieeetr.bst
 Too many commas in name 1 of "M. Hall, E. Frank, G. Holmes, B. Pfahringer, P. Reutemann and I. H. Witten" for entry Hall:2009:WDM:1656274.1656278
-while executing---line 1049 of file plain.bst
+while executing---line 969 of file ieeetr.bst
 Warning--empty booktitle in Kohavi95astudy
-Too many commas in name 1 of "M. Hall, E. Frank, G. Holmes, B. Pfahringer, P. Reutemann and I. H. Witten" for entry Hall:2009:WDM:1656274.1656278
-while executing---line 1090 of file plain.bst
-Too many commas in name 1 of "M. Hall, E. Frank, G. Holmes, B. Pfahringer, P. Reutemann and I. H. Witten" for entry Hall:2009:WDM:1656274.1656278
-while executing---line 1090 of file plain.bst
-You've used 12 entries,
-            2118 wiz_defined-function locations,
-            558 strings with 5404 characters,
-and the built_in function-call counts, 2940 in all, are:
-= -- 289
-> -- 96
-< -- 1
-+ -- 40
-- -- 28
-* -- 118
-:= -- 482
-add.period$ -- 37
-call.type$ -- 12
-change.case$ -- 50
+You've used 13 entries,
+            1876 wiz_defined-function locations,
+            543 strings with 5123 characters,
+and the built_in function-call counts, 2187 in all, are:
+= -- 203
+> -- 67
+< -- 0
++ -- 30
+- -- 17
+* -- 111
+:= -- 312
+add.period$ -- 13
+call.type$ -- 13
+change.case$ -- 13
 chr.to.int$ -- 0
-cite$ -- 13
-duplicate$ -- 109
-empty$ -- 290
-format.name$ -- 28
-if$ -- 643
+cite$ -- 14
+duplicate$ -- 94
+empty$ -- 268
+format.name$ -- 17
+if$ -- 544
 int.to.chr$ -- 0
-int.to.str$ -- 12
-missing$ -- 3
-newline$ -- 63
-num.names$ -- 24
-pop$ -- 85
+int.to.str$ -- 13
+missing$ -- 4
+newline$ -- 42
+num.names$ -- 13
+pop$ -- 58
 preamble$ -- 1
-purify$ -- 38
+purify$ -- 0
 quote$ -- 0
-skip$ -- 109
+skip$ -- 93
 stack$ -- 0
-substring$ -- 135
+substring$ -- 83
 swap$ -- 23
-text.length$ -- 1
+text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 48
+type$ -- 0
 warning$ -- 1
-while$ -- 31
-width$ -- 14
-write$ -- 116
-(There were 4 error messages)
+while$ -- 22
+width$ -- 15
+write$ -- 103
+(There were 2 error messages)

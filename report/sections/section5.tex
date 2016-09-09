@@ -6,7 +6,7 @@ While $holdout$ methods could have been used, $k-fold cross-validation$ estimato
 
 In terms of performance, a $runtime$ measuring method is set at the beginning of the programme, which records starting time and returning finishing time to calculate the total runtime (measurement unit: milliseconds).
 
-However, due to time constraints, there are only two datasets being used as testing sets for this programme: Iris (4 attributes, 150 tuples and Wine datasets (13 attributes, 178 tuples) \cite{ucirepo}.
+However, due to time constraints, there are only two datasets being used as testing sets for this programme: Iris (4 attributes, 150 tuples) and Wine datasets (13 attributes, 178 tuples) \cite{ucirepo}.
 
 
 \section{Performance}
@@ -17,7 +17,21 @@ However, performance can slow down significantly if $System.out.println()$ is us
 
 \section{Accuracy}
 
-In terms of accuracy, from the project demonstration, despite giving output rules when tested, the programme shows semantically wrong output and crashes at certain threshold changes. It means the programme still produces classification rules at several threshold setups, but seemingly stays fixed around the same output even when threshold variation is significantly large. This indicates a structural error that is suspected to be caused by wrong parameters being passed into the recursive $Generator$ call, meaning the combining key process ($aPriori()$) is incorrectly recalled thus produces wrong combination at the end of loop.
+In terms of accuracy, as stated, a two-fold cross-validation technique is applied. The two dataset, Iris and Wine, is cross-validated twice: firstly with $\sigma_{min}$ = $\delta_{min}$ = $\gamma_{min}$ = 0.5 and secondly with $\sigma_{min}$ = $\delta_{min}$ = $\gamma_{min}$ = 0.7.
+
+Figure 5.1 shows the result as:
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=5.5in, height=4.5in]{figures/test1}
+    \caption[Accuracy measures obtained using two-fold cross-validation technique]{Accuracy measures obtained using two-fold cross-validation technique}
+    \label{fig:figure5_1}
+\end{figure}
+
+From Figure 5.1, the programme shows a positive relationship between the number of rules and accuracy level, with both reaching $100\%$ accuracy at the end of the test. This suggests the programme is in the right direction, matching the common trend. There are fewer rules in Iris dataset compared to that of Wine, which is explanable due to the significant gap in attribute numbers between them. 
+However, upon testing, despite rules constructed successfully, it was observed that the programme seemed to produce similar rules at most times despite changes in threshold requirements. Another test was then done setting all thresholds at a low $0.1$, where the programme was expected to produce much larger number of rules compared to the initial test. However, the programme freezed and a $Null$ error appeared in the console. This suggests a structural error in the recursive loop, although due to time constraint no tests could be done further.
+
+
 
 
 

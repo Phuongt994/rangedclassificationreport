@@ -9,13 +9,13 @@ Respectively, for the technical-related changes, section 4 will discuss them in 
 As the project’s main goal is to implement the algorithm, the programme structure is entirely similar to the initial algorithm i.e. Phase I (Analyse) and Phase II (Generate) is kept in order. Details are explained in the following sub-sections. \\
 
 
-\subsection{Project Phase I (Analyse)}
+\subsection{Project Phase I Analyse}
 
 Phase I contains the range analysis method (max-sum) and the threshold checker (for support, density and confidence). In this project, similar steps are implemented: Firstly, the table of data is divided into sub-data by class value (step 1-2). Secondly, within this sub-data, a $[v_{min}, v_{max}]$ range is derived for each of the attribute (step 3). Thirdly, for each of these ranges within an attribute, a max-sum analysis is conducted so that sub-ranges can be deduced from the original range (step 4-7). Finally, each of these sub-ranges is then checked to see whether it passes the specified thresholds of support, confidence and density (step 8-12). The accepted sub-ranges are collected and sent to Phase II (Generate) (step 13).
 
 However, in this project, several steps are done differently in terms of algorithm compared to the initial algorithm. Firstly, the max-sum analysis is adapted to fit in this range-based classification problem. While it was not discussed in details in the initial paper, there is a difference in this max-sum compared to the original max-sum solution. That is, this max-sum method will not seek for one maximal array but multiple ones depending on a set of pre-specified conditions. Secondly, in the threshold checking part, the order of threshold tested are no longer support - density - confidence, but support - confidence for first iteration and density - support - confidence for the second iteration onwards. It is to adapt to the different structural as well as technical requirements of different iteration e.g. density is not relevant in the first iteration where no extended ranges have been made yet. Details are to be discussed in the next section.
 
-\subsection{Project Phase II (Generate)}
+\subsection{Project Phase II Generate}
 
 Phase II contains the range combination method (a-priori) and the additional adjustment step (null-class converter). In this project, the first method is implemented but the second part is replaced by an elimination step (eliminator): Firstly, the accepted sub-ranges from Phase I are considered and grouped with each other under the condition that one of them has an extendable range (step 1-7). Secondly, according to the original algorithm, an adjustment method is required by changing the class value of partly-covered ranges to Null (step 8). 
 
@@ -26,7 +26,7 @@ However, instead of turning tuple's class value to $Null$ only, this project ado
 As mentioned in the previous section, there are two main algorithmic changes in this project compared to the initial algorithm. They are:
 [FIG?]
 
-\subsection{Project Phase I (Analyse)} 
+\subsection{Project Phase I Analyse} 
 
 \begin{itemize}
 	\item Max-sum method $\rightarrow$ maxsum() in detail \\
@@ -38,7 +38,7 @@ As mentioned in the previous section, there are two main algorithmic changes in 
 	\textit{Project version}: Threshold check consists of two orderly checks for first iteration and three orderly checks for second iteration onwards. The order of each threshold check is also altered (for first iteration: support-confidence; for second iteration: density-support-confidence) \\
 \end{itemize}
 
-\subsection{Project Phase II (Generate)} 
+\subsection{Project Phase II Generate} 
 
 \begin{itemize}
 	\item Null-class converting method $\rightarrow$ adjust() \\

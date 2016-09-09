@@ -228,7 +228,7 @@
 	\clearpage                                 % Fix the page number in TOC.
 	\phantomsection                            % Fix the link in PDF.
 	\addcontentsline{toc}{chapter}{Bibliography} % Add the bibliography to TOC.
-	\bibliographystyle{plain}                  % Set the bibliography style.
+	\bibliographystyle{ieeetr}                  % Set the bibliography style.
 	\bibliography{#1}                          % Include the bibliography file.
 }
 

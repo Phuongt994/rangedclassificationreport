@@ -1,64 +1,54 @@
 \begin{thebibliography}{10}
 
-\bibitem{Wu2008}
-X.~Wu et~al.
-\newblock Top 10 algorithms in data mining.
-\newblock {\em Knowledge and Information Systems}, 14(1):1--37, 2008.
-
-\bibitem{eclipse}
-Eclipse Foundation.
-\newblock {Eclipse Neon}.
-\newblock \url{https://eclipse.org/}.
-
-\bibitem{ucirepo}
-A.~Frank and A.~Asuncion.
-\newblock {UCI Machine Learning Repository}.
-\newblock \url{http://archive.ics.uci.edu/ml}.
-
-\bibitem{github}
-GitHub.
-\newblock {How People Build Software - GitHub}.
-\newblock \url{https://github.com/}.
+\bibitem{tziatzios_shao_loukides_2011}
+A.~Tziatzios, J.~Shao, and G.~Loukides, ``A heuristic method for deriving
+  range-based classification rules,'' {\em 2011 Eighth International Conference
+  on Fuzzy Systems and Knowledge Discovery (FSKD)}, 2011.
 
 \bibitem{intellij}
-JetBrains.
-\newblock {IntelliJ IDEA the Java IDE}.
-\newblock \url{https://www.jetbrains.com/idea/}.
+JetBrains, ``{IntelliJ IDEA the Java IDE}.''
+  \url{https://www.jetbrains.com/idea/}.
 
 \bibitem{sequenceplugin}
-Kentaur.
-\newblock {JetBrains Plugin Repository: SequencePlugin}.
-\newblock \url{https://plugins.jetbrains.com/plugin/22?pr=}.
+Kentaur, ``{JetBrains Plugin Repository: SequencePlugin}.''
+  \url{https://plugins.jetbrains.com/plugin/22?pr=}.
 
-\bibitem{Kohavi95astudy}
-Ron Kohavi.
-\newblock {A Study of Cross-Validation and Bootstrap for Accuracy Estimation
-  and Model Selection}.
-\newblock pages 1137--1143. Morgan Kaufmann, 1995.
+\bibitem{eclipse}
+E.~Foundation, ``{Eclipse Neon}.'' \url{https://eclipse.org/}.
 
 \bibitem{objectaid}
-ObjectAid LLC.
-\newblock {ObjectAid UML Explorer}.
-\newblock \url{http://www.objectaid.com/}.
+O.~LLC, ``{ObjectAid UML Explorer}.'' \url{http://www.objectaid.com/}.
 
-\bibitem{Hall:2009:WDM:1656274.1656278}
-G.~Holmes B. Pfahringer P.~Reutemann M.~Hall, E.~Frank and I.~H. Witten.
-\newblock {The WEKA Data Mining Software: An Update}.
-\newblock {\em SIGKDD Explor. Newsl.}, 11(1):10--18, November 2009.
-
-\bibitem{visualparadigm}
-Visual Paradigm.
-\newblock {Visual Paradigm Cardiff University License}.
-\newblock \url{https://www.visual-paradigm.com/}.
+\bibitem{github}
+GitHub, ``{How People Build Software - GitHub}.'' \url{https://github.com/}.
 
 \bibitem{githubproject}
-Project Repository.
-\newblock Rangeclassification.
-\newblock \url{https://github.com/Phuongt994/rangedclassification}.
+P.~Repository, ``Rangeclassification.''
+  \url{https://github.com/Phuongt994/rangedclassification}.
 
 \bibitem{githubreport}
-Report Repository.
-\newblock Rangeclassificationreport.
-\newblock \url{https://github.com/Phuongt994/rangedclassificationreport}.
+R.~Repository, ``Rangeclassificationreport.''
+  \url{https://github.com/Phuongt994/rangedclassificationreport}.
+
+\bibitem{visualparadigm}
+V.~Paradigm, ``{Visual Paradigm Cardiff University License}.''
+  \url{https://www.visual-paradigm.com/}.
+
+\bibitem{Hall:2009:WDM:1656274.1656278}
+G.~H. B. P. P.~R. M.~Hall, E.~Frank and I.~H. Witten, ``{The WEKA Data Mining
+  Software: An Update},'' {\em SIGKDD Explor. Newsl.}, vol.~11, pp.~10--18,
+  Nov. 2009.
+
+\bibitem{Wu2008}
+X.~W. et~al, ``Top 10 algorithms in data mining,'' {\em Knowledge and
+  Information Systems}, vol.~14, no.~1, pp.~1--37, 2008.
+
+\bibitem{Kohavi95astudy}
+R.~Kohavi, ``{A Study of Cross-Validation and Bootstrap for Accuracy Estimation
+  and Model Selection},'' pp.~1137--1143, Morgan Kaufmann, 1995.
+
+\bibitem{ucirepo}
+A.~Frank and A.~Asuncion, ``{UCI Machine Learning Repository}.''
+  \url{http://archive.ics.uci.edu/ml}.
 
 \end{thebibliography}
