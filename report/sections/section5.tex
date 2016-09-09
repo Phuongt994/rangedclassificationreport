@@ -1,23 +1,25 @@
 \chapter{Testing}
 
-This section contains all testings done on the programme output. To measure the rule accuracy, $k-fold cross-validation$ is chosen, in which both training and testing set are only used once for testing \cite{Kohavi95astudy}. In this project, a two-fold cross-validation estimator is applied ($k=1$). This means given a dataset, it is partitioned into two equal-sized sub-datasets. One is used for training (i.e being used as the programme input to get output rules) and another is used for testing (i.e being used for accuracy measurements for the output rules obtained earlier). The two are then swapped once, meaning the first half is for testing and the second half for training. Accuracy is taken as an average of that of both rounds.
+This section contains testing analysis upon the program output. Initially, the program is planned to be compared in performance and accuracy to that of the original algorithm. However, under time constraint the program is solely tested on its own.
 
-While $holdout$ methods could have been used, $k-fold cross-validation$ estimator variance is lower than the other by averaging its estimation over $k$ different partitions \cite{Kohavi95astudy}, hence chosen for this project testing part.
+To measure the rule accuracy, \textit{k-fold cross-validation} technique is chosen, in which both training and testing set are only used once for testing \cite{datamining}. In this project, a two-fold cross-validation estimator is applied ($k=2$). This means given a dataset, it is partitioned into two equal-sized sub-datasets. One is used for training (i.e being used as the program input to get output rules) and another is used for testing (i.e being used for accuracy measurements for the output rules obtained earlier). The two are then swapped once, meaning the first half is for testing and the second half for training. Accuracy is taken as an average of that of both rounds.
 
-In terms of performance, a $runtime$ measuring method is set at the beginning of the programme, which records starting time and returning finishing time to calculate the total runtime (measurement unit: milliseconds).
+Note that while $holdout$ methods could have been used, \textit{k-fold cross-validation} estimator variance is lower than the other by averaging its estimation over $k$ different partitions \cite{Kohavi95astudy}, hence chosen for this project testing part.
 
-However, due to time constraints, there are only two datasets being used as testing sets for this programme: Iris (4 attributes, 150 tuples) and Wine datasets (13 attributes, 178 tuples) \cite{ucirepo}.
+In terms of performance, a $runtime$ measuring method is set at the beginning of the program, which records starting time and returning finishing time to calculate the total runtime (measurement unit: milliseconds).
+
+There are only two datasets being used as testing sets for this program: Iris (4 attributes, 150 tuples) and Wine datasets (13 attributes, 178 tuples) \cite{ucirepo}.
 
 
 \section{Performance}
 
 In terms of performance, on Iris dataset, average runtime of 5 runs is around $234ms$. On Wine dataset, it is to be $475ms$ which is doubled from the Iris dataset but explanable due to its attribute size difference.
 
-However, performance can slow down significantly if $System.out.println()$ is used within the programme. It results in $8126ms$ ($\approx 8s$) for Iris dataset and $23212ms$ ($\approx 23s$) for Wine dataset.  
+However, performance can slow down significantly if $System.out.println()$ is used within the program. It results in $8126ms$ ($\approx 8s$) for Iris dataset and $23212ms$ ($\approx 23s$) for Wine dataset.  
 
 \section{Accuracy}
 
-In terms of accuracy, as stated, a two-fold cross-validation technique is applied. The two dataset, Iris and Wine, is cross-validated twice: firstly with $\sigma_{min}$ = $\delta_{min}$ = $\gamma_{min}$ = 0.5 and secondly with $\sigma_{min}$ = $\delta_{min}$ = $\gamma_{min}$ = 0.7.
+In terms of accuracy, measures are taken by cross-validating Iris and Wine dataset twice: firstly with $\sigma_{min}$ = $\delta_{min}$ = $\gamma_{min}$ = 0.5 and secondly with $\sigma_{min}$ = $\delta_{min}$ = $\gamma_{min}$ = 0.7.
 
 Figure 5.1 shows the result as:
 
@@ -28,8 +30,9 @@ Figure 5.1 shows the result as:
     \label{fig:figure5_1}
 \end{figure}
 
-From Figure 5.1, the programme shows a positive relationship between the number of rules and accuracy level, with both reaching $100\%$ accuracy at the end of the test. This suggests the programme is in the right direction, matching the common trend. There are fewer rules in Iris dataset compared to that of Wine, which is explanable due to the significant gap in attribute numbers between them. 
-However, upon testing, despite rules constructed successfully, it was observed that the programme seemed to produce similar rules at most times despite changes in threshold requirements. Another test was then done setting all thresholds at a low $0.1$, where the programme was expected to produce much larger number of rules compared to the initial test. However, the programme freezed and a $Null$ error appeared in the console. This suggests a structural error in the recursive loop, although due to time constraint no tests could be done further.
+From Figure 5.1, the program shows a positive relationship between the number of rules and accuracy level, with both reaching $100\%$ accuracy at the end of the test. This suggests the program is in the right direction, matching the common trend. There are fewer rules in Iris dataset compared to that of Wine, which is explanable due to the significant gap in attribute numbers between them. 
+
+However, upon testing, despite rules constructed successfully, it was observed that the program seemed to produce similar rules at most times despite changes in threshold requirements. Another test was then done setting all thresholds at a low $0.1$, where the program was expected to produce much larger number of rules compared to the initial test. However, the program froze showing a $Null$ error in the console. This suggests a structural error in the recursive loop, although due to time constraint no tests could be done further.
 
 
 

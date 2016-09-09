@@ -10,7 +10,7 @@ The implementation process can now be divided into five Phases instead of two fr
 
 \input{tables/table6}
 
-From Table 4.1, a detailed structure for the programme can be presented in an Activity Diagram below:
+From Table 4.1, a detailed structure for the program can be presented in an Activity Diagram below:
 \begin{figure}[h]
     \centering
     \includegraphics[width=6.5in, height=6.8in]{figures/activity_overview}
@@ -37,7 +37,7 @@ From Table 4.1, a detailed structure for the programme can be presented in an Ac
 	\item{Pre-processed .csv file (no null values within attributes and the order of element in an instance is {attribute $1$, attribute $2$,..., attribute $N$, class $C$}}
 \end{itemize} 
 
-\textit{Reason: } Initial plan included an extra processing unit for filtering csv file when value is Null. However, time constraint did not allow the construction of this unit. Hence the programme only consider pre-processed csv data at the time the report is written.
+\textit{Reason: } Initial plan included an extra processing unit for filtering csv file when value is Null. However, time constraint did not allow the construction of this unit. Hence the program only consider pre-processed csv data at the time the report is written.
 
 \item[Output: ] This class output are data taken from input source:
 \begin{itemize}
@@ -90,7 +90,7 @@ Figure 4.3 shows the sequence diagram for $Scanners$, showing the data flow from
 
 \begin{description}
 
-\item[Aim: ] Being the core module of the programme, there are important aims for this phase or class:
+\item[Aim: ] Being the core module of the program, there are important aims for this phase or class:
 \begin{itemize}
 	\item{To find (min, max) range for each attribute from class-based map.} 
 	\item{To convert (min, max) range to binary array, which is ready for max-sum analysis.} 
@@ -107,7 +107,7 @@ Figure 4.3 shows the sequence diagram for $Scanners$, showing the data flow from
 	\item{\texttt{allClassMap}: with key as class tag and value as relevant sub-data partition.}
 \end{itemize}
 
-\textit{Reason: } \texttt{allClassMap} is needed for the class-guided search for the rest of the programme. This map, however, changes as the sub-data pool changes throughout the cycle. Therefore, \texttt{allTuple} is needed to refer back to the original, pre-modification input when necessary.
+\textit{Reason: } \texttt{allClassMap} is needed for the class-guided search for the rest of the program. This map, however, changes as the sub-data pool changes throughout the cycle. Therefore, \texttt{allTuple} is needed to refer back to the original, pre-modification input when necessary.
 
 \item[Output: ] A list of sub-ranges in float values that passed the support-confidence check (\texttt{attributeRangeList}). It also returns a modified version of allClassMap, which \texttt{AllClassMap} is now divided into two maps: \textit{attributeRange} and \textit{attributeTuple}.
   
@@ -120,7 +120,7 @@ Map, however, diversifies into two:
 	
 Initially, only \texttt{attributeRangeMap} was implemented as it was thought that only attribute and its sub-ranges were necessary to be recorded formally. Tuples covered by sub-ranges were thought to be retrievable by tracing back to the original \texttt{AllClassMap}.
 	
-However, as data was partitioned further the longer the algorithm persisted, there was no fixed map that remained relevant for the entire duration of the programme. With the dynamic nature of tuple sets, it was safer to recorded them right when their sub-ranges were being processed. Thus there was a need for the additional \texttt{attributeTupleMap}.
+However, as data was partitioned further the longer the algorithm persisted, there was no fixed map that remained relevant for the entire duration of the program. With the dynamic nature of tuple sets, it was safer to recorded them right when their sub-ranges were being processed. Thus there was a need for the additional \texttt{attributeTupleMap}.
 \end{itemize}
 
 \item[Data type: ] For \texttt{attributeRangeMap}, a \texttt{LinkedHashMap} with \texttt{LinkedList<Integer>} as keys and \texttt{LinkedList<LinkedList<Float[]>>} as values is used. This map stores attribute number as key (thus \texttt{Integer} type cast) and ranges as value (thus \texttt{LinkedList<Float>} type cast). It must be noted that despite attribute number being a singular integer (from $1$ to $n$), \texttt{LinkedList} is implemented since attributes' ranges are combined at Generate phase. That means attribute number must be expandable to manage this new combination (e.g attribute $1$ and $2$ has associated ranges of $[1.1,1.5]$ and $[2.2, 2.6]$. Once these two ranges are combined to form larger ranges, attribute numbers are also combined i.e. to ${1,2}$ to manage this combined range in the map) - hence need for a \texttt{List}. Likewise, \texttt{LinkedList<Float>} is sufficient to manage a single range; when there are multiple ranges to be stored, an outer \texttt{LinkedList} must be used.
@@ -136,7 +136,7 @@ Similarly, For \texttt{attributeTupleMap}, a \texttt{LinkedHashMap} with \texttt
     \label{fig:figure4_3}
 \end{figure}
 
-Its class diagram is in Figure 4.3, which additionally shows a parentage link to $SubAnalyser$ class for Phase IV $Sub-Analyse$. It is the only instance of inheritence in the programme: $Analyser$ is used in the first iteration and its framework is re-used for code efficiency in $Sub-Analyser$ for second iteration onwards. For this subsection, only $Analyser$ is discussed; $SubAnalyser$ is to be explained in the next subsection.
+Its class diagram is in Figure 4.3, which additionally shows a parentage link to $SubAnalyser$ class for Phase IV $Sub-Analyse$. It is the only instance of inheritence in the program: $Analyser$ is used in the first iteration and its framework is re-used for code efficiency in $Sub-Analyser$ for second iteration onwards. For this subsection, only $Analyser$ is discussed; $SubAnalyser$ is to be explained in the next subsection.
 
 Class $Analyser$ contains seven features/methods:
 
@@ -154,7 +154,7 @@ Class $Analyser$ contains seven features/methods:
 	This binary list is sent to the next method \texttt{maxSum()} for sub-range analysis.
 	
 	\item{maxSum()} \\
-	For each of the binary list, this method performs a similar analysis to Kadane's max-sum algorithm [SRC]: Starting with a \texttt{sum} of $0$, it traverses through the list values while adding this value to the initial \texttt{sum}, also keeping track of the element position in an \texttt{attributePosition} array. If \texttt{sum} is positive, it moves on while taking the same action. However, if it gets negative, it resets the \texttt{sum} to $0$ and also restart the \texttt{attributePosition} array. This essentially means that the current array contains too many wrong class tag if continued (i.e. too many $-1$s), and thus not necessary to proceed into more negatives. 
+	For each of the binary list, this method performs a similar analysis to Kadane's max-sum algorithm: Starting with a \texttt{sum} of $0$, it traverses through the list values while adding this value to the initial \texttt{sum}, also keeping track of the element position in an \texttt{attributePosition} array. If \texttt{sum} is positive, it moves on while taking the same action. However, if it gets negative, it resets the \texttt{sum} to $0$ and also restart the \texttt{attributePosition} array. This essentially means that the current array contains too many wrong class tag if continued (i.e. too many $-1$s), and thus not necessary to proceed into more negatives. 
 	
 	However, while a new \texttt{attributePosition} array is created starting from this position, the current array is recorded instead of discarded, which is also considered as a sub-range ready for next iteration. This step differentiates this method from the original Kadane's since Kadane's seeks for only one optimal range, constrasting to this method where multiple sub-ranges are desired.
 	
@@ -168,7 +168,7 @@ Class $Analyser$ contains seven features/methods:
 	 Support $\sigma$ = array size / binary list size \\
 	 Confidence $\delta$ = number of positive occurence within array / array size
 	 
-	 Array size is calculated by the subtraction of last and first position e.g for position array $[10,21]$, the array size is $21 - 10 = 11$. Positive occurence is counted by traversing through binary values that are covered under this position range e.g for position array $[10,21]$, the programme retrieves value of element number $[10]$, $[11]$,...,$[21]$ in binary list and counts the quantity of $1$s against $-1$. 
+	 Array size is calculated by the subtraction of last and first position e.g for position array $[10,21]$, the array size is $21 - 10 = 11$. Positive occurence is counted by traversing through binary values that are covered under this position range e.g for position array $[10,21]$, the program retrieves value of element number $[10]$, $[11]$,...,$[21]$ in binary list and counts the quantity of $1$s against $-1$. 
 	 
 	 These measures are compared to their corresponding user-specified thresholds in a conditional clause. If an array passes both thresholds, it is accepted as a candidate sub-range for next iteration. Accepted arrays are added into a new \texttt{list} to be passed onto the next method, \texttt{convertPositionToRange} where it is converted from integer position to its respective float range values.
 	 
@@ -203,7 +203,7 @@ Below is a Sequence diagram to present data flow from $Scanners \rightarrow Anal
 
 \begin{description}
 
-\item[Aim: ] As another core module of the programme, this class concerns with the following aims:
+\item[Aim: ] As another core module of the program, this class concerns with the following aims:
 \begin{itemize}
 	\item{To combined sub-ranges found in the previous module and form larger associated ranges, by a method resembles A-priori.} 
 	\item{To check if one sub-range is extendable with another by checking its attribute value.} 
@@ -254,7 +254,7 @@ Its class diagram is in Figure 4.4, which presents five features/methods:
 	\item{analyseNewCombination()} \\
 	 Once new combined key and range are generated, this method sends both to the next $SubAnalyser$ class to observe whether the new (candidate) combined range could satisfies specified conditions for the next iteration. If it does, the range is returned by a \texttt{get()} method within $SubAnalyser$ to this method. 
 	 
-	 If the returned range is $Null$, it means threshold was not satisfied thus the programme returns to \texttt{aPriori()} method to seek for new combination. However, if there is (one or more) returned range from $SubAnalyse$, this method will take the combined range and key to append it to map (similar method to \texttt{appendToMap}). A \texttt{newAttributeRangeMap} and \texttt{newAttributeTupleMap} will replace \texttt{attributeRangeMap} and \texttt{attributeTupleMap} in the last iteration respectively.
+	 If the returned range is $Null$, it means threshold was not satisfied thus the program returns to \texttt{aPriori()} method to seek for new combination. However, if there is (one or more) returned range from $SubAnalyse$, this method will take the combined range and key to append it to map (similar method to \texttt{appendToMap}). A \texttt{newAttributeRangeMap} and \texttt{newAttributeTupleMap} will replace \texttt{attributeRangeMap} and \texttt{attributeTupleMap} in the last iteration respectively.
 	
 	\item{finaliseRule()} \\
 	This method occurs only when there is no possible pairing left. A conditional clause in the $Generator$ constructor calls this method when there is only one attribute number left in \texttt{newAttributeRangeMap}. Essentially, it means all keys are combined into one largest key combination and thus no other combination is possible. It acts as a stopping point to recursive $Generator$ calls and procees to send the final combination as classification rules to the next class $Monitor$ for evaluation and display.
@@ -350,7 +350,7 @@ Below is a sequence diagram used to present a data flow between $Generator \righ
 \subsection{Phase V Monitor}
 \begin{description}
 
-\item[Aim: ] As the final phase, this class wraps up the programme with the following aims:
+\item[Aim: ] As the final phase, this class wraps up the program with the following aims:
 
 \begin{itemize}
 	\item{To by reformating the remaining associated ranges into readable classification rules.} 
@@ -369,7 +369,7 @@ Below is a sequence diagram used to present a data flow between $Generator \righ
 
 \item[Output: ] $Monitor$ produces two outputs: the evaluation of rules (including runtime and accuracy) as \texttt{String} and the rules itself to the terminal and text \texttt{.txt} file as record. 
   
-\textit{Reason: } Initially, class $Monitor$ did not exist as the information is produced directly to the Terminal when the programme runs. However, for readability and back-tracking functionality, a text log is decided to be kept alongside Terminal output, hence $Monitor$.  
+\textit{Reason: } Initially, class $Monitor$ did not exist as the information is produced directly to the Terminal when the program runs. However, for readability and back-tracking functionality, a text log is decided to be kept alongside Terminal output, hence $Monitor$.  
 
 \item[Data type: ] All information is transformed into \texttt{String} as it is appended to the text \texttt{.txt} file. 
 
@@ -388,7 +388,7 @@ Its class diagram is in Figure 4.6, which presents five features/methods:
 	\item{evaluateRule()} \\
 	This method is responsible for re-formating the ranges and calculate the rule performance and accuracy. For re-formating, due to data structure requirements the ranges found are not in correct order e.g. $r = [a,b]$ where $a > b$, so this method swaps the ranges into correct band to get $r = [b,a]$.
 	 
-	For rule evaluation, initially it calculated the accuracy by applying the rule onto the original dataset and observed if its prediction matched the rules. As realised at later stage, this approach was not sufficient in determining the true accuracy of the programme, and training set was considered by spliting the original dataset into half. However, due to time constraint there was no working implementation for this testing part and thus \texttt{evaluateRule} only re-formats rules instead of evaluating them for the time being.
+	For rule evaluation, initially it calculated the accuracy by applying the rule onto the original dataset and observed if its prediction matched the rules. As realised at later stage, this approach was not sufficient in determining the true accuracy of the program, and training set was considered by spliting the original dataset into half. However, due to time constraint there was no working implementation for this testing part and thus \texttt{evaluateRule} only re-formats rules instead of evaluating them for the time being.
 	 
 	\item{outputRule()} \\
 	This method outputs the rules (that are formatted into \texttt{String}) onto a text file for logging purpose. 
@@ -413,7 +413,7 @@ In this section, the software engineering aspects of the project is discussed: o
 
 \subsection{Planning}
 
-The most common way to do project planning is to rely on Gantt Chat]. Gantt chart provides an overview for project development process and monitors the progress based on specified deadlines for different tasks.
+The most common way to do project planning is to rely on Gantt Chart. Gantt chart provides an overview for project development process and monitors the progress based on specified deadlines for different tasks.
 
 However, there are algorithmic as well as implementing changes that are considered frequently during the process. It was decided that Gantt chart would not be dynamic enough to accommodate changes, and as a replacement a Kanban board was used.
 
@@ -443,17 +443,17 @@ For this project, there are several softwares utilised:
 	In addition to IntelliJ, Eclipse is used in computer labs. While having similar functions as IntelliJ, Eclipse also provides a free Class diagram generator plugin (ObjectAid \cite{objectaid}) for a quick UML generator. However, the Class diagrams used in this report is generated by Visual Paradigm instead, as Visual Paradigm provides more detailed information e.g. type of parameters. 
 		
 	\item{Git - GitHub} \cite{github}
-	GitHub is used for mananging the project and the report itself, which ensures mobility of the programme and detailed records of code change history. GitHub is used as an integration to IntelliJ and Eclipse.
+	
+	GitHub is used for mananging the project and the report itself, which ensures mobility of the program and detailed records of code change history. GitHub is used as an integration to IntelliJ and Eclipse.
 	
 	GitHub links are available for the latest updates of project \cite{githubproject} and the report in both pdf and laTex format \cite{githubreport}.
 	
 	\item{Visual Paradigm} \cite{visualparadigm}
+	
 	Visual Paradigm is used to generate Class diagram in this project, replacing Eclipse plugin.
 		
-	\item{Weka} \cite{Hall:2009:WDM:1656274.1656278}
-	Weka is used for testing part of this project by cross-validating this project outcome against that of top ten algorithm \cite{Wu2008}. 
-		
 	\item{LaTex}
+	
 	LaTex is used for constructing this report. Its class template can be found at \cite{sphdtemplate}.
 
 \end{itemize}

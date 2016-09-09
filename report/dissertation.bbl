@@ -39,29 +39,24 @@ ObjectAid, ``{ObjectAid UML Explorer}.'' \url{http://www.objectaid.com/}.
 GitHub, ``{How People Build Software - GitHub}.'' \url{https://github.com/}.
 
 \bibitem{githubproject}
-Repository, ``Rangeclassification.''
-  \url{https://github.com/Phuongt994/rangedclassification}.
+Repository, ``Rangeclassification repo.'' \url{https://github.com/Phuongt994/
+  rangedclassification}.
 
 \bibitem{githubreport}
-Repository, ``Rangeclassificationreport.''
-  \url{https://github.com/Phuongt994/rangedclassificationreport}.
+Repository, ``Rangedclassification.'' \url{https://github.com/Phuongt994/
+  rangedclassificationreport}.
 
 \bibitem{visualparadigm}
-V.~Paradigm, ``{Visual Paradigm Cardiff University License}.''
+VisualParadigm, ``{Visual Paradigm Cardiff University License}.''
   \url{https://www.visual-paradigm.com/}.
-
-\bibitem{Hall:2009:WDM:1656274.1656278}
-G.~H. B. P. P.~R. M.~Hall, E.~Frank and I.~H. Witten, ``{The WEKA Data Mining
-  Software: An Update},'' {\em SIGKDD Explor. Newsl.}, vol.~11, pp.~10--18,
-  Nov. 2009.
-
-\bibitem{Wu2008}
-X.~W. et~al, ``Top 10 algorithms in data mining,'' {\em Knowledge and
-  Information Systems}, vol.~14, no.~1, pp.~1--37, 2008.
 
 \bibitem{sphdtemplate}
 S.~Garg, ``{CTAN: SPhD template for LaTex}.''
   \url{https://www.ctan.org/pkg/sphdthesis?lang=en}.
+
+\bibitem{datamining}
+M.~S. et~al, {\em Introduction to Data Mining}.
+\newblock Pearson Addison Wesley, 2006.
 
 \bibitem{Kohavi95astudy}
 R.~Kohavi, ``{A Study of Cross-Validation and Bootstrap for Accuracy Estimation
@@ -72,7 +67,7 @@ A.~Frank and A.~Asuncion, ``{UCI Machine Learning Repository}.''
   \url{http://archive.ics.uci.edu/ml}.
 
 \bibitem{maxminer}
-R.~Bayardo, ``{ in Proc. of the 1998 ACM-SIGMOD Int’l Conf. on Management of
+R.~Bayardo, ``{ in Proc. of the 1998 ACM-SIGMOD Int`l Conf. on Management of
   Data},'' pp.~85--93, 1998.
 
 \end{thebibliography}

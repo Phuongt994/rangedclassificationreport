@@ -6,51 +6,47 @@ Database file #1: biblio.bib
 Warning--I'm ignoring kadane's extra "year" field
 --line 15 of file biblio.bib
 Warning--empty booktitle in srikant
-Too many commas in name 1 of "M. Hall, E. Frank, G. Holmes, B. Pfahringer, P. Reutemann and I. H. Witten" for entry Hall:2009:WDM:1656274.1656278
-while executing---line 969 of file ieeetr.bst
-Too many commas in name 1 of "M. Hall, E. Frank, G. Holmes, B. Pfahringer, P. Reutemann and I. H. Witten" for entry Hall:2009:WDM:1656274.1656278
-while executing---line 969 of file ieeetr.bst
 Warning--empty booktitle in Kohavi95astudy
 Warning--empty booktitle in maxminer
-You've used 19 entries,
+You've used 18 entries,
             1876 wiz_defined-function locations,
-            571 strings with 5478 characters,
-and the built_in function-call counts, 3425 in all, are:
-= -- 329
-> -- 92
+            557 strings with 5150 characters,
+and the built_in function-call counts, 3038 in all, are:
+= -- 283
+> -- 84
 < -- 0
-+ -- 42
-- -- 23
-* -- 163
-:= -- 469
++ -- 39
+- -- 21
+* -- 129
+:= -- 416
 add.period$ -- 22
-call.type$ -- 19
-change.case$ -- 16
+call.type$ -- 18
+change.case$ -- 14
 chr.to.int$ -- 0
-cite$ -- 22
-duplicate$ -- 169
-empty$ -- 417
-format.name$ -- 23
-if$ -- 866
+cite$ -- 21
+duplicate$ -- 151
+empty$ -- 387
+format.name$ -- 21
+if$ -- 773
 int.to.chr$ -- 0
-int.to.str$ -- 19
+int.to.str$ -- 18
 missing$ -- 12
-newline$ -- 63
-num.names$ -- 19
-pop$ -- 97
+newline$ -- 61
+num.names$ -- 18
+pop$ -- 101
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 138
+skip$ -- 118
 stack$ -- 0
-substring$ -- 145
-swap$ -- 46
+substring$ -- 102
+swap$ -- 35
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 3
-while$ -- 35
-width$ -- 21
-write$ -- 154
-(There were 2 error messages)
+while$ -- 28
+width$ -- 20
+write$ -- 142
+(There were 4 warnings)
