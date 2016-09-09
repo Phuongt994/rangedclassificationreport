@@ -1,6 +1,6 @@
 \chapter{Background}
 
-The project implements an algorithm originated from [SRC]. The algorithm utilises a similar approach to association rule mining: it searches for associated ranges in each attribute, then combine these ranges to form a larger rule. To make this search more efficient, class values are used to guide the search i.e. only ranges that have relevant class tags are considered. The algorithm is explained in the following sections.
+This section presents the concepts as well as the original algorithm itself. Dataset examples are provided for each concept. Step-by-step explanation is provided for the algorithm explanation.
 
 % First section: Preliminaries
 \section{Preliminaries}
@@ -55,10 +55,12 @@ Assume similar settings from Definition 5, the density for $r$ in $T$ is:
 
 \end{description}
 
+
+
 % Section 3: Original Algorithm
 \section{Original algorithm}
 
-As mentioned, the algorithm provides a more efficient way to discover associated ranges than the traditional brute-force solution. Instead of traversing through all possible combinations of ranges among all attributes, this algorithm first divides the data into sub-data pools in accordance to its class value. Then, under each attribute, it searches for sub-ranges that could pass certain user-defined thresholds (confidence, support and density). These sub-ranges are then collected and ready to be tested for possible combinations between each other that passes certain thresholds similar to the previous step, which are then collected and ready to be tested for larger combinations. Additionally, after larger combinations are found, an extra adjustment step is done on class values of relevant tuples within the new associated ranges. Afterwards, new associated ranges are ready to be analysed again to find more possible sub-ranges and new combination of sub-ranges. This iteration continues until no possible combinations can be found, so that the last standing associated ranges are translated into the concluding classification rule for that class value. 
+As stated, the algorithm provides a more efficient way to discover and combine associated ranges for larger rule sets. Instead of traversing through all possible combinations of ranges among all classes and attributes, this algorithm first divides the data into sub-data pools in accordance to its class value. Then, under each attribute, it searches for sub-ranges that could pass certain user-defined thresholds (confidence, support and density). These sub-ranges are then collected and ready to be tested for possible combinations between each other that passes certain thresholds similar to the previous step, which are then collected and ready to be tested for larger combinations. Additionally, after larger combinations are found, an extra adjustment step is done on class values of relevant tuples within the new associated ranges. Afterwards, new associated ranges are ready to be analysed again to find more possible sub-ranges and new combination of sub-ranges. This iteration continues until no possible combinations can be found, so that the last standing associated ranges are translated into the concluding classification rule for that class value. 
 
 To get a clearer structure of the algorithm, its proceedings can be divided into two phases:  
 
@@ -75,7 +77,7 @@ This phase has its primary concern as to analyse ranges. Based on the algorithm 
 This phase has its primary concern as to generate larger associated ranges for the next iteration. Based on the algorithm, it includes:
 	\begin{enumerate}
 	\item For each sub-range obtained from last phase, check for possible combination of that range with the remaining ones.
-	\item Adjust class values of relevant tuples$r_1, r_2, r_3..r_h \rightarrow c$ under the new combined sub-range.
+	\item Adjust class values of relevant tuples $r_1, r_2, r_3...r_h \rightarrow c$ under the new combined sub-range.
 	\end{enumerate}
 \end{description}
 
@@ -83,7 +85,9 @@ Details for each phase are as follows:
 
 \subsection{Original Phase I Analyse}
 
-Given a table $T(A_1, A_2, A_3,..A_m, C)$, the algorithm attemps to seek for classification $r_1, r_2, r_3..r_h \rightarrow c_j$ by finding, among instances that are under class $c_j \subset C$, a number of associated ranges $r_1, r_2, r_3..r_h$ that have at least a minimum support ($\sigma_{min}$), density ($\delta_{min}$) and confidence ($\gamma_{min}$) that had previously been specified by the user. This process can be explained in Phase I (Analyse) in which the algorithm seeks for associated ranges and checks if thresholds are satisfied. From [SRC], this phase is outlined as below:
+Given a table $T(A_1, A_2, A_3,..A_m, C)$, the algorithm attemps to seek for classification $r_1, r_2, r_3..r_h \rightarrow c_j$ by finding, among instances that are under class $c_j \in C$, a number of associated ranges $r_1, r_2, r_3..r_h$ that have at least a minimum support ($\sigma_{min}$), density ($\delta_{min}$) and confidence ($\gamma_{min}$) that had previously been specified by the user. This process can be explained in Phase I (Analyse) in which the algorithm seeks for associated ranges and checks if thresholds are satisfied. 
+
+From Figure 2.1, a step-by-step explanation of this algorithm is as follows: 
 
 \begin{figure}[h]
     \centering
@@ -92,7 +96,7 @@ Given a table $T(A_1, A_2, A_3,..A_m, C)$, the algorithm attemps to seek for cla
     \label{fig:figure2_1}
 \end{figure}
 
-A step-by-step explanation of this algorithm is as follows: 
+
 
 \begin{description}
 \item[Step 1-2] As the beginning steps of the algorithm, they selects a set of tuples $t_1, t_2, t_3..t_N$ from $T$ that has class value $c_j \subset C$ and store them in $T_{c_j}$. 
